@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chata Bardejov | Útulná chata v srdci prírody</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-emerald-950 text-amber-50">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-emerald-950/90 border-b border-amber-100/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+      <div class="text-lg font-semibold tracking-tight">Chata Bardejov</div>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium w-full">
+        <a href="#o-chate" class="hover:text-amber-200 transition-colors">O Chate</a>
+        <a href="#lokalita" class="hover:text-amber-200 transition-colors">Lokalita</a>
+        <a href="#fotogaleria" class="hover:text-amber-200 transition-colors">Fotogaléria</a>
+        <a href="tipy.html" class="hover:text-amber-200 transition-colors">10 tipov v okolí</a>
+        <a href="cennik.html" class="hover:text-amber-200 transition-colors">Cenník</a>
+        <div class="ml-auto flex items-center gap-4">
+          <a href="index-en.html" class="flex items-center gap-1 hover:text-amber-200 transition-colors" title="English version">
+            <span class="text-lg">🇬🇧</span>
+            <span>EN</span>
+          </a>
+          <a href="#rezervacia" class="px-3 py-1.5 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-sm hover:-translate-y-0.5 transition-transform">Rezervácia</a>
+        </div>
+      </nav>
+      <button id="mobile-menu-btn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full bg-amber-400 text-emerald-950 font-semibold">
+        <span id="menu-icon">☰</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-emerald-950 border-b border-amber-100/10 shadow-xl z-50 flex flex-col p-6 gap-4">
+    <a href="#o-chate" class="text-amber-50 hover:text-amber-200 transition-colors py-2">O Chate</a>
+    <a href="#lokalita" class="text-amber-50 hover:text-amber-200 transition-colors py-2">Lokalita</a>
+    <a href="#fotogaleria" class="text-amber-50 hover:text-amber-200 transition-colors py-2">Fotogaléria</a>
+    <a href="tipy.html" class="text-amber-50 hover:text-amber-200 transition-colors py-2">10 tipov v okolí</a>
+    <a href="cennik.html" class="text-amber-50 hover:text-amber-200 transition-colors py-2">Cenník</a>
+    <div class="flex items-center gap-4 pt-2 border-t border-amber-100/10">
+      <a href="index-en.html" class="flex items-center gap-1 text-amber-50 hover:text-amber-200 transition-colors">
+        <span class="text-lg">🇬🇧</span>
+        <span>EN</span>
+      </a>
+      <a href="#rezervacia" class="px-4 py-2 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-sm hover:-translate-y-0.5 transition-transform">Rezervácia</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="relative isolate overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-emerald-900 via-emerald-950 to-emerald-950 opacity-90"></div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20 relative grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-amber-300 uppercase tracking-[0.2em] text-xs mb-4">Útulná chata v prírode</p>
+        <h1 class="text-4xl sm:text-5xl font-semibold leading-tight mb-6">Chata Bardejov – oddych pri horiacom krbe</h1>
+        <p class="text-amber-100/90 text-lg leading-relaxed mb-8">Zažite pokoj severovýchodného Slovenska v drevenom interiéri s vôňou lesa, praskajúcim krbom a terasou s výhľadom na okolie historického Bardejova.</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#rezervacia" class="inline-flex items-center justify-center px-5 py-3 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-lg shadow-amber-400/30 hover:-translate-y-0.5 transition-transform">Rezervovať pobyt</a>
+          <a href="#o-chate" class="inline-flex items-center justify-center px-5 py-3 rounded-full border border-amber-100/40 text-amber-50 hover:bg-amber-50 hover:text-emerald-950 transition-colors">Zistiť viac</a>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="rounded-3xl bg-amber-100/10 border border-amber-100/10 aspect-[4/5] overflow-hidden shadow-xl">
+          <div class="h-full w-full bg-gradient-to-br from-amber-200 to-amber-400 opacity-80"></div>
+        </div>
+        <div class="rounded-3xl bg-amber-100/10 border border-amber-100/10 aspect-[4/5] overflow-hidden shadow-xl translate-y-6">
+          <div class="h-full w-full bg-gradient-to-br from-emerald-200 to-emerald-400 opacity-70"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O Chate -->
+  <section id="o-chate" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 space-y-10">
+    <div class="flex flex-col gap-4">
+      <p class="text-amber-300 uppercase tracking-[0.2em] text-xs">O Chate</p>
+      <h2 class="text-3xl sm:text-4xl font-semibold">Vybavenie a dispozícia pre váš komfort</h2>
+      <p class="text-amber-100/80 max-w-3xl">Tichá chatová oblasť len 20 minút príjemnej prechádzky od historického Radničného námestia v Bardejove. Kapacita ideálne 6 osôb (komfort), maximálne 8 osôb.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="p-6 rounded-2xl bg-emerald-900/60 border border-amber-100/10">
+        <h3 class="text-xl font-semibold mb-3">Prízemie</h3>
+        <p class="text-amber-100/70">Veľká spoločenská miestnosť s krbom (možnosť spania pre 2 osoby), plne vybavená kuchyňa a kúpeľňa s WC a priestranným sprchovým kútom.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-emerald-900/60 border border-amber-100/10">
+        <h3 class="text-xl font-semibold mb-3">Poschodie</h3>
+        <p class="text-amber-100/70">Dve samostatné spálne, každá s kapacitou 3 lôžok (rozloženie 3+3). Pohodlné matrace a dostatok úložného priestoru.</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-emerald-900/60 border border-amber-100/10">
+        <h3 class="text-xl font-semibold mb-3">Exteriér</h3>
+        <p class="text-amber-100/70">Oplotený pozemok (bezpečie pre deti a psov), veľká zastrešená terasa a vonkajší krytý gril pre celoročné grilovanie.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lokalita -->
+  <section id="lokalita" class="bg-emerald-900/50 border-y border-amber-100/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 grid lg:grid-cols-2 gap-10 items-center">
+      <div class="space-y-4">
+        <p class="text-amber-300 uppercase tracking-[0.2em] text-xs">Lokalita</p>
+        <h2 class="text-3xl sm:text-4xl font-semibold">Bardejov a okolie</h2>
+        <p class="text-amber-100/80">Historické centrum Bardejova zapísané v UNESCO, blízke liečebné kúpele, cyklotrasy a lesy ponúkajú ideálnu kombináciu kultúry a prírody.</p>
+        <ul class="space-y-2 text-amber-100/80">
+          <li>• 10 minút autom do centra Bardejova</li>
+          <li>• Turistické chodníky priamo z chaty</li>
+          <li>• Kúpele a wellness v blízkom okolí</li>
+        </ul>
+      </div>
+      <div class="rounded-3xl bg-emerald-950 border border-amber-100/15 p-4 shadow-xl">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2264.987994823796!2d21.297969!3d49.2932524!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473e8116403f3c7f%3A0x4b182ff8d10874be!2sBardejov%205600%2C%20085%2001%20Bardejov%2C%20Slovensko!5e1!3m2!1scs!2scz!4v1765538370977!5m2!1scs!2scz" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-[400px] rounded-xl shadow-lg"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Čo robiť v okolí -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16 space-y-10">
+    <div class="flex flex-col gap-4">
+      <p class="text-amber-300 uppercase tracking-[0.2em] text-xs">Lokalita a aktivity</p>
+      <h2 class="text-3xl sm:text-4xl font-semibold">Čo robiť v okolí</h2>
+      <p class="text-amber-100/80 max-w-3xl">Vyberte si z tipov na zimné športy, letné osvieženie aj unikátne atrakcie. Všetko v dostupnej vzdialenosti od chaty.</p>
+    </div>
+    <div class="grid lg:grid-cols-3 gap-6">
+      <div class="p-6 rounded-2xl bg-emerald-900/60 border border-amber-100/10 space-y-3">
+        <h3 class="text-xl font-semibold">Zimné športy</h3>
+        <ul class="space-y-2 text-amber-100/80">
+          <li>• Ski Regetovka (18 km) – obľúbené domáce stredisko.</li>
+          <li>• Tylicz Ski & Master Ski (Poľsko, 18 km) – špičkové rodinné strediská.</li>
+          <li>• Jaworzyna Krynicka (Poľsko, 30 km) – najdlhšia kabínková lanovka v okolí.</li>
+        </ul>
+      </div>
+      <div class="p-6 rounded-2xl bg-emerald-900/60 border border-amber-100/10 space-y-3">
+        <h3 class="text-xl font-semibold">Leto a voda</h3>
+        <ul class="space-y-2 text-amber-100/80">
+          <li>• Prírodné kúpalisko Makovica (14 km smer Svidník).</li>
+          <li>• Bardejovské Kúpele (5 km) – wellness v hoteli Ozón, skanzen, kúpalisko.</li>
+          <li>• Vodný svet Aquaruthenia Svidník (20 km).</li>
+        </ul>
+      </div>
+      <div class="p-6 rounded-2xl bg-emerald-900/60 border border-amber-100/10 space-y-3">
+        <h3 class="text-xl font-semibold">Unikátne atrakcie</h3>
+        <ul class="space-y-2 text-amber-100/80">
+          <li>• UNESCO centrum Bardejova (Bazilika sv. Egídia).</li>
+          <li>• Chodník korunami stromov (Wieża Widokowa) v Krynici.</li>
+          <li>• Turistika na Zborovský hrad alebo rozhľadňu Kamenná hora.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-10 flex justify-center">
+      <a href="tipy.html" class="inline-flex items-center px-5 py-3 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-lg shadow-amber-400/30 hover:-translate-y-0.5 transition-transform">10 tipov v okolí</a>
+    </div>
+  </section>
+
+  <!-- Fotogaléria -->
+  <section id="fotogaleria" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 space-y-8">
+    <div class="flex flex-col gap-4">
+      <p class="text-amber-300 uppercase tracking-[0.2em] text-xs">Fotogaléria</p>
+      <h2 class="text-3xl sm:text-4xl font-semibold">Interiér aj exteriér</h2>
+      <p class="text-amber-100/80 max-w-2xl">Pozrite si atmosféru chaty – drevené detaily, útulný krb a prírodu v okolí. Nahraďte placeholdery vlastnými fotografiami.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="h-48 rounded-2xl bg-gradient-to-br from-amber-200 to-amber-400 opacity-90"></div>
+      <div class="h-48 rounded-2xl bg-gradient-to-br from-emerald-200 to-emerald-500 opacity-80"></div>
+      <div class="h-48 rounded-2xl bg-gradient-to-br from-amber-100 to-amber-300 opacity-90"></div>
+      <div class="h-48 rounded-2xl bg-gradient-to-br from-emerald-100 to-emerald-300 opacity-80"></div>
+      <div class="h-48 rounded-2xl bg-gradient-to-br from-amber-300 to-amber-500 opacity-80"></div>
+      <div class="h-48 rounded-2xl bg-gradient-to-br from-emerald-200 to-emerald-600 opacity-80"></div>
+    </div>
+  </section>
+
+  <!-- Cenník -->
+  <section id="cennik" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 space-y-10">
+    <div class="flex flex-col gap-4">
+      <p class="text-amber-300 uppercase tracking-[0.2em] text-xs">Cenník</p>
+      <h2 class="text-3xl sm:text-4xl font-semibold">Ceny za ubytovanie</h2>
+      <p class="text-amber-100/80 max-w-3xl">Ceny sú za celý objekt na noc, maximálne pre 6 osôb. <a href="cennik.html" class="text-amber-300 hover:text-amber-200 underline">Pozrite si detailný cenník</a>.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="p-6 rounded-2xl bg-emerald-900/60 border border-amber-100/10 space-y-4">
+        <h3 class="text-xl font-semibold">Pracovný týždeň</h3>
+        <p class="text-amber-100/70 text-sm">Nedeľa - Streda</p>
+        <div class="text-4xl font-bold text-amber-400">80 €</div>
+        <p class="text-amber-100/70 text-sm">/ noc</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-emerald-900/60 border border-amber-100/10 space-y-4">
+        <h3 class="text-xl font-semibold">Rozbeh víkendu</h3>
+        <p class="text-amber-100/70 text-sm">Streda - Piatok</p>
+        <div class="text-4xl font-bold text-amber-400">100 €</div>
+        <p class="text-amber-100/70 text-sm">/ noc</p>
+      </div>
+      <div class="p-6 rounded-2xl bg-emerald-900/60 border border-amber-100/10 space-y-4">
+        <h3 class="text-xl font-semibold">Víkend</h3>
+        <p class="text-amber-100/70 text-sm">Piatok - Nedeľa</p>
+        <div class="text-4xl font-bold text-amber-400">120 €</div>
+        <p class="text-amber-100/70 text-sm">/ noc</p>
+      </div>
+    </div>
+    <div class="bg-amber-50 text-emerald-950 rounded-2xl p-6 sm:p-8">
+      <h3 class="text-xl font-semibold mb-4 text-center">Čím dlhšie zostanete, tým menej platíte</h3>
+      <div class="grid sm:grid-cols-3 gap-4 text-center">
+        <div>
+          <p class="text-lg font-semibold">3+ nocí</p>
+          <p class="text-emerald-600 font-bold">Zľava 10% 🏷️</p>
+        </div>
+        <div>
+          <p class="text-lg font-semibold">5+ nocí</p>
+          <p class="text-emerald-600 font-bold">Zľava 20% 🏷️</p>
+        </div>
+        <div>
+          <p class="text-lg font-semibold">7+ nocí</p>
+          <p class="text-emerald-600 font-bold">Zľava 30% 🏷️</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recenzie -->
+  <section id="recenzie" class="bg-amber-50 text-emerald-950 border-y border-amber-100/60">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 space-y-8">
+      <div class="flex flex-col gap-3">
+        <p class="text-amber-600 uppercase tracking-[0.2em] text-xs">Recenzie hostí</p>
+        <h2 class="text-3xl sm:text-4xl font-semibold">Čo hovoria hostia</h2>
+        <p class="text-emerald-900/80 max-w-3xl">Skutočné skúsenosti hostí, ktorí už objavili pohodlie Chaty Bardejov.</p>
+      </div>
+      <div class="relative">
+        <div class="overflow-hidden rounded-3xl">
+          <div class="grid grid-cols-1" data-review-track>
+            <article data-review-slide class="px-16 py-8 bg-white shadow-xl rounded-3xl space-y-4">
+              <div class="text-amber-400 text-lg">★★★★★</div>
+              <p class="italic text-emerald-900">"Nádherná chata v tichom prostredí. Večery pri krbe boli nezabudnuteľné. Oceňujem čistotu a vybavenie kuchyne. Určite sa vrátime aj v zime!"</p>
+              <p class="font-semibold text-emerald-950">Marek S.</p>
+            </article>
+            <article data-review-slide class="px-16 py-8 bg-white shadow-xl rounded-3xl space-y-4 hidden">
+              <div class="text-amber-400 text-lg">★★★★★</div>
+              <p class="italic text-emerald-900">"Hľadali sme únik z mesta a toto bolo to pravé. Na skok do Bardejova na kávu, ale pritom úplný kľud v lese. Postele boli veľmi pohodlné."</p>
+              <p class="font-semibold text-emerald-950">Jana a Peter</p>
+            </article>
+            <article data-review-slide class="px-16 py-8 bg-white shadow-xl rounded-3xl space-y-4 hidden">
+              <div class="text-amber-400 text-lg">★★★★★</div>
+              <p class="italic text-emerald-900">"Perfektné pre rodinu s deťmi. Pozemok je oplotený, takže sme sa nebáli nechať deti behať vonku. Grilovačka na terase nemala chybu."</p>
+              <p class="font-semibold text-emerald-950">Rodina Kováčová</p>
+            </article>
+            <article data-review-slide class="px-16 py-8 bg-white shadow-xl rounded-3xl space-y-4 hidden">
+              <div class="text-amber-400 text-lg">★★★★★</div>
+              <p class="italic text-emerald-900">"Super lokalita pre lyžiarov. Do Tylicza sme to mali autom kúsok. Chata je priestranná, boli sme partia 6 ľudí a netlačili sme sa. Odporúčam!"</p>
+              <p class="font-semibold text-emerald-950">Lukáš M.</p>
+            </article>
+            <article data-review-slide class="px-16 py-8 bg-white shadow-xl rounded-3xl space-y-4 hidden">
+              <div class="text-amber-400 text-lg">★★★★★</div>
+              <p class="italic text-emerald-900">"Komunikácia s majiteľom bola rýchla a bezproblémová. Chata vyzerá presne ako na fotkách, možno ešte lepšie. Wellness v Bardejovských Kúpeľoch bol čerešničkou na torte."</p>
+              <p class="font-semibold text-emerald-950">Veronika T.</p>
+            </article>
+          </div>
+        </div>
+        <button type="button" data-review-prev class="absolute left-2 top-1/2 -translate-y-1/2 bg-white text-emerald-950 rounded-full shadow-lg w-10 h-10 flex items-center justify-center hover:-translate-y-1/2 hover:scale-105 transition">‹</button>
+        <button type="button" data-review-next class="absolute right-2 top-1/2 -translate-y-1/2 bg-white text-emerald-950 rounded-full shadow-lg w-10 h-10 flex items-center justify-center hover:-translate-y-1/2 hover:scale-105 transition">›</button>
+      </div>
+      <div class="flex items-center justify-center gap-2">
+        <button type="button" data-review-dot class="w-3 h-3 rounded-full bg-emerald-200"></button>
+        <button type="button" data-review-dot class="w-3 h-3 rounded-full bg-emerald-200"></button>
+        <button type="button" data-review-dot class="w-3 h-3 rounded-full bg-emerald-200"></button>
+        <button type="button" data-review-dot class="w-3 h-3 rounded-full bg-emerald-200"></button>
+        <button type="button" data-review-dot class="w-3 h-3 rounded-full bg-emerald-200"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rezervácia -->
+  <section id="rezervacia" class="bg-emerald-900/60 border-t border-amber-100/10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-16">
+      <div class="flex flex-col gap-4 mb-8">
+        <p class="text-amber-300 uppercase tracking-[0.2em] text-xs">Rezervácia</p>
+        <h2 class="text-3xl sm:text-4xl font-semibold">Naplánujte si pobyt</h2>
+        <p class="text-amber-100/80 max-w-2xl">Rezervujte si svoj termín včas. Chata je ideálna pre rodiny aj partie priateľov. Vyplňte formulár a čoskoro sa vám ozveme s potvrdením termínu.</p>
+      </div>
+      <form action="https://formspree.io/f/mjknjyyw" method="POST" class="grid gap-6 bg-emerald-950/70 border border-amber-100/10 rounded-2xl p-6 shadow-xl">
+        <input type="text" name="_gotcha" style="display:none">
+        <input type="hidden" id="kalkulacia" name="kalkulacia" value="">
+        <div class="grid md:grid-cols-2 gap-4">
+          <label class="space-y-2 text-sm">
+            <span class="text-amber-100/80">Meno a priezvisko</span>
+            <input type="text" name="meno" required class="w-full px-4 py-3 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50" placeholder="Vaše meno" />
+          </label>
+          <label class="space-y-2 text-sm">
+            <span class="text-amber-100/80">Email</span>
+            <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50" placeholder="vas@email.com" />
+          </label>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <label class="space-y-2 text-sm">
+            <span class="text-amber-100/80">Telefónne číslo</span>
+            <input type="tel" name="telefon" class="w-full px-4 py-3 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50" placeholder="+421 9.." />
+          </label>
+          <label class="space-y-2 text-sm">
+            <span class="text-amber-100/80">Počet osôb</span>
+            <input type="number" name="pocet_osob" min="1" class="w-full px-4 py-3 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50" placeholder="4 osoby" />
+          </label>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <label class="space-y-2 text-sm">
+            <span class="text-amber-100/80">Dátum príchodu</span>
+            <input type="date" id="checkin" name="datum_prichodu" required class="w-full px-4 py-3 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50" />
+          </label>
+          <label class="space-y-2 text-sm">
+            <span class="text-amber-100/80">Dátum odchodu</span>
+            <input type="date" id="checkout" name="datum_odchodu" required class="w-full px-4 py-3 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50" />
+          </label>
+        </div>
+        <div id="price-calculator" class="hidden bg-emerald-50 text-emerald-900 p-4 rounded-lg space-y-2">
+          <div class="flex justify-between items-center">
+            <span class="text-sm">Počet nocí:</span>
+            <span id="nights-count" class="font-semibold">0</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-sm">Pôvodná cena:</span>
+            <span id="original-price" class="line-through text-emerald-600">0 €</span>
+          </div>
+          <div id="discount-info" class="text-sm text-emerald-700 hidden"></div>
+          <div class="flex justify-between items-center pt-2 border-t border-emerald-200">
+            <span class="font-semibold">Finálna cena:</span>
+            <span id="final-price" class="text-2xl font-bold text-emerald-900">0 €</span>
+          </div>
+        </div>
+        <label class="space-y-2 text-sm">
+          <span class="text-amber-100/80">Poznámka</span>
+          <textarea name="sprava" rows="4" class="w-full px-4 py-3 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50" placeholder="Preferencie, špeciálne požiadavky..."></textarea>
+        </label>
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <label class="inline-flex items-start gap-2 text-sm text-amber-100/80">
+            <input type="checkbox" required class="mt-1 w-4 h-4 rounded border-amber-100/40 bg-emerald-900 text-amber-400 focus:ring-amber-300" />
+            <span>Súhlasím so spracovaním osobných údajov a so <a href="podmienky.html" target="_blank" class="underline text-green-700">Všeobecnými obchodnými podmienkami</a>.</span>
+          </label>
+          <p class="text-amber-100/70 text-sm">Odošlite formulár a ozveme sa s potvrdením.</p>
+          <button type="submit" id="submit-btn" class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-lg shadow-amber-400/30 hover:-translate-y-0.5 transition-transform">Odoslať rezerváciu</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-amber-100/10 bg-emerald-950 py-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-amber-100/70">
+      <span>© 2025 Chata Bardejov</span>
+      <span>Kontakt: info@chatabardejov.sk · +421 900 000 000</span>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const slides = Array.from(document.querySelectorAll('[data-review-slide]'));
+      const dots = Array.from(document.querySelectorAll('[data-review-dot]'));
+      const prevBtn = document.querySelector('[data-review-prev]');
+      const nextBtn = document.querySelector('[data-review-next]');
+      if (!slides.length || !dots.length || !prevBtn || !nextBtn) return;
+
+      let index = 0;
+      let timer = null;
+
+      const show = (i) => {
+        index = (i + slides.length) % slides.length;
+        slides.forEach((el, idx) => {
+          el.classList.toggle('hidden', idx !== index);
+        });
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('bg-emerald-600', idx === index);
+          dot.classList.toggle('bg-emerald-200', idx !== index);
+        });
+      };
+
+      const next = () => show(index + 1);
+      const prev = () => show(index - 1);
+
+      const resetTimer = () => {
+        if (timer) clearInterval(timer);
+        timer = setInterval(next, 5000);
+      };
+
+      prevBtn.addEventListener('click', () => { prev(); resetTimer(); });
+      nextBtn.addEventListener('click', () => { next(); resetTimer(); });
+      dots.forEach((dot, idx) => dot.addEventListener('click', () => { show(idx); resetTimer(); }));
+
+      show(0);
+      resetTimer();
+    })();
+
+    // Price Calculator
+    (() => {
+      const checkinInput = document.getElementById('checkin');
+      const checkoutInput = document.getElementById('checkout');
+      const calculator = document.getElementById('price-calculator');
+      const nightsCount = document.getElementById('nights-count');
+      const originalPriceEl = document.getElementById('original-price');
+      const finalPriceEl = document.getElementById('final-price');
+      const discountInfo = document.getElementById('discount-info');
+      const submitBtn = document.getElementById('submit-btn');
+
+      const getDayPrice = (date) => {
+        const day = date.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+        if (day === 5 || day === 6) return 120; // Friday, Saturday
+        if (day === 3 || day === 4) return 100; // Wednesday, Thursday
+        return 80; // Sunday, Monday, Tuesday
+      };
+
+      const calculatePrice = () => {
+        if (!checkinInput || !checkoutInput || !calculator) return;
+
+        const checkin = checkinInput.value;
+        const checkout = checkoutInput.value;
+
+        if (!checkin || !checkout) {
+          calculator.classList.add('hidden');
+          return;
+        }
+
+        const checkinDate = new Date(checkin + 'T00:00:00');
+        const checkoutDate = new Date(checkout + 'T00:00:00');
+
+        if (checkoutDate <= checkinDate) {
+          calculator.classList.add('hidden');
+          return;
+        }
+
+        // Calculate nights and total price
+        let totalPrice = 0;
+        let nights = 0;
+        const currentDate = new Date(checkinDate);
+
+        while (currentDate < checkoutDate) {
+          totalPrice += getDayPrice(currentDate);
+          nights++;
+          currentDate.setDate(currentDate.getDate() + 1);
+        }
+
+        // Apply discounts
+        let discount = 0;
+        let discountPercent = 0;
+        if (nights >= 7) {
+          discountPercent = 30;
+        } else if (nights >= 5) {
+          discountPercent = 20;
+        } else if (nights >= 3) {
+          discountPercent = 10;
+        }
+
+        discount = (totalPrice * discountPercent) / 100;
+        const finalPrice = totalPrice - discount;
+
+        // Update UI
+        if (nightsCount) nightsCount.textContent = nights;
+        if (originalPriceEl) originalPriceEl.textContent = totalPrice.toFixed(0) + ' €';
+        if (finalPriceEl) finalPriceEl.textContent = finalPrice.toFixed(0) + ' €';
+
+        if (discountPercent > 0) {
+          if (originalPriceEl) originalPriceEl.classList.remove('hidden');
+          if (discountInfo) {
+            discountInfo.textContent = `Zľava ${discountPercent}% za dlhý pobyt`;
+            discountInfo.classList.remove('hidden');
+          }
+        } else {
+          if (originalPriceEl) originalPriceEl.classList.add('hidden');
+          if (discountInfo) discountInfo.classList.add('hidden');
+        }
+
+        // Remove hidden class to show calculator
+        calculator.classList.remove('hidden');
+
+        // Update hidden field with calculation
+        const kalkulaciaField = document.getElementById('kalkulacia');
+        if (kalkulaciaField) {
+          kalkulaciaField.value = `Predbežná kalkulácia webu: ${finalPrice.toFixed(0)} EUR za ${nights} nocí`;
+        }
+      };
+
+      // Add event listeners for both input and change events
+      if (checkinInput) {
+        checkinInput.addEventListener('input', calculatePrice);
+        checkinInput.addEventListener('change', calculatePrice);
+      }
+      if (checkoutInput) {
+        checkoutInput.addEventListener('input', calculatePrice);
+        checkoutInput.addEventListener('change', calculatePrice);
+      }
+
+      // Run calculation on page load (for autofill)
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', calculatePrice);
+      } else {
+        calculatePrice();
+      }
+    })();
+
+    // Mobile Menu
+    (() => {
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      const menuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+
+      if (!menuBtn || !mobileMenu || !menuIcon) return;
+
+      const toggleMenu = () => {
+        mobileMenu.classList.toggle('hidden');
+        menuIcon.textContent = mobileMenu.classList.contains('hidden') ? '☰' : '✕';
+      };
+
+      menuBtn.addEventListener('click', toggleMenu);
+
+      // Close menu when clicking on any link
+      menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuIcon.textContent = '☰';
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
+

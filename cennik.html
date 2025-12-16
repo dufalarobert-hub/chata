@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cenník - Chata Bardejov</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-emerald-950 text-amber-50">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-emerald-950/90 border-b border-amber-100/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+      <a href="index.html" class="text-lg font-semibold tracking-tight">Chata Bardejov</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="index.html#o-chate" class="hover:text-amber-200 transition-colors">O Chate</a>
+        <a href="index.html#lokalita" class="hover:text-amber-200 transition-colors">Lokalita</a>
+        <a href="index.html#fotogaleria" class="hover:text-amber-200 transition-colors">Fotogaléria</a>
+        <a href="tipy.html" class="hover:text-amber-200 transition-colors">10 tipov v okolí</a>
+        <a href="cennik.html" class="hover:text-amber-200 transition-colors">Cenník</a>
+        <a href="cennik-en.html" class="hover:text-amber-200 transition-colors">EN</a>
+        <a href="index.html#rezervacia" class="px-3 py-1.5 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-sm hover:-translate-y-0.5 transition-transform">Rezervácia</a>
+      </nav>
+      <button id="mobile-menu-btn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full bg-amber-400 text-emerald-950 font-semibold">
+        <span id="menu-icon">☰</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-emerald-950 border-b border-amber-100/10 shadow-xl z-50 flex flex-col p-6 gap-4">
+    <a href="index.html#o-chate" class="text-amber-50 hover:text-amber-200 transition-colors py-2">O Chate</a>
+    <a href="index.html#lokalita" class="text-amber-50 hover:text-amber-200 transition-colors py-2">Lokalita</a>
+    <a href="index.html#fotogaleria" class="text-amber-50 hover:text-amber-200 transition-colors py-2">Fotogaléria</a>
+    <a href="tipy.html" class="text-amber-50 hover:text-amber-200 transition-colors py-2">10 tipov v okolí</a>
+    <a href="cennik.html" class="text-amber-50 hover:text-amber-200 transition-colors py-2">Cenník</a>
+    <div class="flex items-center gap-4 pt-2 border-t border-amber-100/10">
+      <a href="cennik-en.html" class="flex items-center gap-1 text-amber-50 hover:text-amber-200 transition-colors">
+        <span class="text-lg">🇬🇧</span>
+        <span>EN</span>
+      </a>
+      <a href="index.html#rezervacia" class="px-4 py-2 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-sm hover:-translate-y-0.5 transition-transform">Rezervácia</a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-16 space-y-16">
+    <!-- Header Section -->
+    <div class="flex flex-col gap-4">
+      <p class="text-amber-300 uppercase tracking-[0.2em] text-xs">Cenník</p>
+      <h1 class="text-3xl sm:text-4xl font-semibold">Ceny za ubytovanie</h1>
+      <p class="text-amber-100/80 max-w-3xl">Ceny sú za celý objekt na noc, maximálne pre 6 osôb. Čím dlhšie zostanete, tým menej platíte.</p>
+    </div>
+
+    <!-- Sekcia 1: Hlavné ceny -->
+    <section class="space-y-8">
+      <h2 class="text-2xl sm:text-3xl font-semibold">Hlavné ceny</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Karta 1: Pracovný týždeň -->
+        <div class="p-6 rounded-2xl bg-emerald-900/60 border border-amber-100/10 space-y-4">
+          <h3 class="text-xl font-semibold">Pracovný týždeň</h3>
+          <p class="text-amber-100/70 text-sm">Nedeľa - Streda</p>
+          <div class="text-4xl font-bold text-amber-400">80 €</div>
+          <p class="text-amber-100/70 text-sm">/ noc</p>
+          <p class="text-amber-100/80 text-sm mt-4">Ideálne pre digitálnych nomádov a pokoj.</p>
+        </div>
+
+        <!-- Karta 2: Rozbeh víkendu -->
+        <div class="p-6 rounded-2xl bg-emerald-900/60 border border-amber-100/10 space-y-4">
+          <h3 class="text-xl font-semibold">Rozbeh víkendu</h3>
+          <p class="text-amber-100/70 text-sm">Streda - Piatok</p>
+          <div class="text-4xl font-bold text-amber-400">100 €</div>
+          <p class="text-amber-100/70 text-sm">/ noc</p>
+        </div>
+
+        <!-- Karta 3: Víkend -->
+        <div class="p-6 rounded-2xl bg-emerald-900/60 border border-amber-100/10 space-y-4">
+          <h3 class="text-xl font-semibold">Víkend</h3>
+          <p class="text-amber-100/70 text-sm">Piatok - Nedeľa</p>
+          <div class="text-4xl font-bold text-amber-400">120 €</div>
+          <p class="text-amber-100/70 text-sm">/ noc</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sekcia 2: Zľavy za dĺžku pobytu -->
+    <section class="bg-amber-50 text-emerald-950 rounded-3xl p-8 sm:p-12 space-y-6">
+      <h2 class="text-2xl sm:text-3xl font-semibold text-center">Čím dlhšie zostanete, tým menej platíte</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="text-center p-6 bg-white rounded-2xl shadow-lg">
+          <div class="text-3xl mb-3">🏷️</div>
+          <h3 class="text-xl font-semibold mb-2">3 a viac nocí</h3>
+          <p class="text-2xl font-bold text-emerald-600">Zľava 10%</p>
+        </div>
+        <div class="text-center p-6 bg-white rounded-2xl shadow-lg">
+          <div class="text-3xl mb-3">🏷️</div>
+          <h3 class="text-xl font-semibold mb-2">5 a viac nocí</h3>
+          <p class="text-2xl font-bold text-emerald-600">Zľava 20%</p>
+        </div>
+        <div class="text-center p-6 bg-white rounded-2xl shadow-lg">
+          <div class="text-3xl mb-3">🏷️</div>
+          <h3 class="text-xl font-semibold mb-2">7 a viac nocí</h3>
+          <p class="text-2xl font-bold text-emerald-600">Zľava 30%</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sekcia 3: Dôležité informácie -->
+    <section class="space-y-8">
+      <h2 class="text-2xl sm:text-3xl font-semibold">Dôležité informácie</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- V cene je zahrnuté -->
+        <div class="p-6 rounded-2xl bg-emerald-900/60 border border-amber-100/10 space-y-4">
+          <h3 class="text-xl font-semibold flex items-center gap-2">
+            <span class="text-2xl">✅</span>
+            V cene je zahrnuté
+          </h3>
+          <ul class="space-y-2 text-amber-100/80">
+            <li>• Ubytovanie pre 6 osôb</li>
+            <li>• Parkovanie</li>
+            <li>• Wi-Fi</li>
+            <li>• Drevo do krbu</li>
+            <li>• Posteľná bielizeň</li>
+          </ul>
+        </div>
+
+        <!-- Doplatky -->
+        <div class="p-6 rounded-2xl bg-emerald-900/60 border border-amber-100/10 space-y-4">
+          <h3 class="text-xl font-semibold flex items-center gap-2">
+            <span class="text-2xl">💰</span>
+            Doplatky
+          </h3>
+          <ul class="space-y-2 text-amber-100/80">
+            <li>• Rekreačný poplatok obci (osoba/noc)</li>
+            <li>• Vratná kaucia 100 € (pri príchode)</li>
+          </ul>
+        </div>
+
+        <!-- Časy -->
+        <div class="p-6 rounded-2xl bg-emerald-900/60 border border-amber-100/10 space-y-4">
+          <h3 class="text-xl font-semibold flex items-center gap-2">
+            <span class="text-2xl">🕐</span>
+            Časy
+          </h3>
+          <ul class="space-y-2 text-amber-100/80">
+            <li>• Príchod (Check-in) od 14:00</li>
+            <li>• Odchod (Check-out) do 10:00</li>
+          </ul>
+        </div>
+
+        <!-- Storno -->
+        <div class="p-6 rounded-2xl bg-emerald-900/60 border border-amber-100/10 space-y-4">
+          <h3 class="text-xl font-semibold flex items-center gap-2">
+            <span class="text-2xl">📋</span>
+            Storno
+          </h3>
+          <ul class="space-y-2 text-amber-100/80">
+            <li>• Bezplatné zrušenie do 14 dní pred príchodom</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="text-center py-8">
+      <a href="index.html#rezervacia" class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-lg shadow-amber-400/30 hover:-translate-y-0.5 transition-transform">Rezervovať pobyt</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-amber-100/10 bg-emerald-950 py-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-amber-100/70">
+      <span>© 2025 Chata Bardejov</span>
+      <span>Kontakt: info@chatabardejov.sk · +421 900 000 000</span>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu
+    (() => {
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      const menuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+
+      if (!menuBtn || !mobileMenu || !menuIcon) return;
+
+      const toggleMenu = () => {
+        mobileMenu.classList.toggle('hidden');
+        menuIcon.textContent = mobileMenu.classList.contains('hidden') ? '☰' : '✕';
+      };
+
+      menuBtn.addEventListener('click', toggleMenu);
+
+      // Close menu when clicking on any link
+      menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuIcon.textContent = '☰';
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
+
