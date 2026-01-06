@@ -1,7 +1,5 @@
 const ical = require('node-ical');
 
-const CALENDAR_URL = 'https://calendar.google.com/calendar/ical/9df8165438f7bff5ffbc9aa5f9063d4098060108a32e4c493c1f4b8f09279197%40group.calendar.google.com/private-5798c538273c23f911d19f8c555c101d/basic.ics';
-
 module.exports = async (req, res) => {
   // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -12,8 +10,19 @@ module.exports = async (req, res) => {
     return res.status(200).end();
   }
 
+  const calendarUrl = process.env.GOOGLE_ICAL_URL;
+
+  if (!calendarUrl) {
+    console.error('GOOGLE_ICAL_URL environment variable is not set');
+    return res.status(200).json({
+      success: false,
+      error: 'Calendar not configured',
+      bookedDates: []
+    });
+  }
+
   try {
-    const events = await ical.async.fromURL(CALENDAR_URL);
+    const events = await ical.async.fromURL(calendarUrl);
     const bookedDates = new Set();
 
     for (const key in events) {
