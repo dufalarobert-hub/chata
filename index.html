@@ -474,7 +474,9 @@
         .then(res => res.json())
         .then(data => {
           if (data.success && data.bookedDates) {
-            bookedDates = data.bookedDates;
+            console.log('Načítané obsadené termíny:', data.bookedDates);
+            // Convert string dates to Date objects for Flatpickr
+            bookedDates = data.bookedDates.map(dateStr => new Date(dateStr + 'T00:00:00'));
             // Reinitialize pickers with booked dates
             initFlatpickr();
           }
