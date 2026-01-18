@@ -5,10 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cottage Bardejov | Cozy cottage in the heart of nature</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Flatpickr -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <style>
     html {
       scroll-behavior: smooth;
+    }
+    /* Flatpickr custom styles */
+    .flatpickr-calendar {
+      background: #064e3b !important;
+      border: 1px solid rgba(251, 191, 36, 0.2) !important;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
+    }
+    .flatpickr-months .flatpickr-month,
+    .flatpickr-current-month .flatpickr-monthDropdown-months,
+    .flatpickr-weekdays,
+    span.flatpickr-weekday {
+      background: #064e3b !important;
+      color: #fef3c7 !important;
+    }
+    .flatpickr-day {
+      color: #fef3c7 !important;
+    }
+    .flatpickr-day:hover {
+      background: #065f46 !important;
+      border-color: #fbbf24 !important;
+    }
+    .flatpickr-day.selected,
+    .flatpickr-day.startRange,
+    .flatpickr-day.endRange {
+      background: #fbbf24 !important;
+      border-color: #fbbf24 !important;
+      color: #064e3b !important;
+    }
+    .flatpickr-day.flatpickr-disabled,
+    .flatpickr-day.flatpickr-disabled:hover,
+    .flatpickr-day.disabled,
+    .flatpickr-day.disabled:hover {
+      color: #991b1b !important;
+      background: #ffecec !important;
+      text-decoration: line-through;
+      cursor: not-allowed !important;
+      opacity: 1 !important;
+      border-color: #fecaca !important;
+    }
+    .flatpickr-day.today {
+      border-color: #fbbf24 !important;
+    }
+    .flatpickr-months .flatpickr-prev-month,
+    .flatpickr-months .flatpickr-next-month {
+      fill: #fef3c7 !important;
+      color: #fef3c7 !important;
+    }
+    .flatpickr-months .flatpickr-prev-month:hover,
+    .flatpickr-months .flatpickr-next-month:hover {
+      fill: #fbbf24 !important;
+      color: #fbbf24 !important;
+    }
+    .flatpickr-current-month input.cur-year {
+      color: #fef3c7 !important;
     }
   </style>
 </head>
@@ -398,11 +457,11 @@
         <div class="grid md:grid-cols-2 gap-4">
           <label class="space-y-2 text-sm">
             <span class="text-amber-100/80">Check-in date</span>
-            <input type="date" id="checkin" name="datum_prichodu" required class="w-full px-4 py-3 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50" />
+            <input type="text" id="checkin" name="datum_prichodu" required readonly class="w-full px-4 py-3 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50 cursor-pointer" placeholder="Select date" />
           </label>
           <label class="space-y-2 text-sm">
             <span class="text-amber-100/80">Check-out date</span>
-            <input type="date" id="checkout" name="datum_odchodu" required class="w-full px-4 py-3 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50" />
+            <input type="text" id="checkout" name="datum_odchodu" required readonly class="w-full px-4 py-3 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50 cursor-pointer" placeholder="Select date" />
           </label>
         </div>
         <div id="price-calculator" class="hidden bg-emerald-50 text-emerald-900 p-4 rounded-lg space-y-2">
@@ -533,6 +592,85 @@
   </footer>
 
   <script>
+    // Flatpickr initialization with calendar API
+    (() => {
+      let bookedDates = [];
+      let checkinPicker = null;
+      let checkoutPicker = null;
+
+      // Fetch booked dates from API
+      fetch('/api/calendar')
+        .then(res => res.json())
+        .then(data => {
+          if (data.success && data.bookedDates) {
+            console.log('Loaded booked dates:', data.bookedDates);
+            // Convert string dates to Date objects for Flatpickr
+            bookedDates = data.bookedDates.map(dateStr => new Date(dateStr + 'T00:00:00'));
+            // Reinitialize pickers with booked dates
+            initFlatpickr();
+          }
+        })
+        .catch(err => {
+          console.error('Failed to load calendar:', err);
+          initFlatpickr();
+        });
+
+      function initFlatpickr() {
+        const commonConfig = {
+          dateFormat: 'd.m.Y',
+          altInput: true,
+          altFormat: 'd.m.Y',
+          minDate: 'today',
+          disable: bookedDates,
+          disableMobile: true
+        };
+
+        // Destroy existing pickers if any
+        if (checkinPicker) checkinPicker.destroy();
+        if (checkoutPicker) checkoutPicker.destroy();
+
+        checkinPicker = flatpickr('#checkin', {
+          ...commonConfig,
+          onChange: function(selectedDates, dateStr, instance) {
+            if (selectedDates.length > 0) {
+              // Set min date for checkout to be at least one day after checkin
+              const nextDay = new Date(selectedDates[0]);
+              nextDay.setDate(nextDay.getDate() + 1);
+              checkoutPicker.set('minDate', nextDay);
+
+              // Store ISO format in data attribute for price calculator
+              const isoDate = selectedDates[0].toISOString().split('T')[0];
+              document.getElementById('checkin').dataset.isoDate = isoDate;
+
+              // Trigger price calculation
+              document.getElementById('checkin').dispatchEvent(new Event('change'));
+            }
+          }
+        });
+
+        checkoutPicker = flatpickr('#checkout', {
+          ...commonConfig,
+          onChange: function(selectedDates, dateStr, instance) {
+            if (selectedDates.length > 0) {
+              // Store ISO format in data attribute for price calculator
+              const isoDate = selectedDates[0].toISOString().split('T')[0];
+              document.getElementById('checkout').dataset.isoDate = isoDate;
+
+              // Trigger price calculation
+              document.getElementById('checkout').dispatchEvent(new Event('change'));
+            }
+          }
+        });
+      }
+
+      // Initialize immediately with empty booked dates
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initFlatpickr);
+      } else {
+        initFlatpickr();
+      }
+    })();
+
     (() => {
       const slides = Array.from(document.querySelectorAll('[data-review-slide]'));
       const dots = Array.from(document.querySelectorAll('[data-review-dot]'));
@@ -626,16 +764,28 @@
       const calculatePrice = () => {
         if (!checkinInput || !checkoutInput || !calculator) return;
 
-        const checkin = checkinInput.value;
-        const checkout = checkoutInput.value;
+        // Use ISO date from data attribute (set by Flatpickr) or fallback to input value
+        const checkin = checkinInput.dataset.isoDate || checkinInput.value;
+        const checkout = checkoutInput.dataset.isoDate || checkoutInput.value;
 
         if (!checkin || !checkout) {
           calculator.classList.add('hidden');
           return;
         }
 
-        const checkinDate = new Date(checkin + 'T00:00:00');
-        const checkoutDate = new Date(checkout + 'T00:00:00');
+        // Parse date - handle both ISO (YYYY-MM-DD) and format (DD.MM.YYYY)
+        const parseDate = (str) => {
+          if (str.includes('-')) {
+            return new Date(str + 'T00:00:00');
+          } else if (str.includes('.')) {
+            const parts = str.split('.');
+            return new Date(`${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}T00:00:00`);
+          }
+          return new Date(str + 'T00:00:00');
+        };
+
+        const checkinDate = parseDate(checkin);
+        const checkoutDate = parseDate(checkout);
 
         if (checkoutDate <= checkinDate) {
           calculator.classList.add('hidden');

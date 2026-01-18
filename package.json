@@ -1,0 +1,24 @@
+{
+  "name": "chata",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dufalarobert-hub/chata.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/dufalarobert-hub/chata/issues"
+  },
+  "homepage": "https://github.com/dufalarobert-hub/chata#readme",
+  "dependencies": {
+    "node-ical": "^0.22.1"
+  }
+}

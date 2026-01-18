@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="sk">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tipy na výlety - Chata Bardejov</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
   </style>
 </head>
+
 <body class="bg-emerald-950 text-amber-50">
   <!-- Header -->
   <header class="sticky top-0 z-50 backdrop-blur bg-emerald-950/90 border-b border-amber-100/10">
@@ -21,16 +25,19 @@
         <a href="tipy.html" class="hover:text-amber-200 transition-colors">10 tipov v okolí</a>
         <a href="cennik.html" class="hover:text-amber-200 transition-colors">Cenník</a>
         <a href="tipy-en.html" class="hover:text-amber-200 transition-colors">EN</a>
-        <a href="index.html#rezervacia" class="px-3 py-1.5 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-sm hover:-translate-y-0.5 transition-transform">Rezervácia</a>
+        <a href="index.html#rezervacia"
+          class="px-3 py-1.5 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-sm hover:-translate-y-0.5 transition-transform">Rezervácia</a>
       </nav>
-      <button id="mobile-menu-btn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full bg-amber-400 text-emerald-950 font-semibold">
+      <button id="mobile-menu-btn"
+        class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full bg-amber-400 text-emerald-950 font-semibold">
         <span id="menu-icon">☰</span>
       </button>
     </div>
   </header>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-emerald-950 border-b border-amber-100/10 shadow-xl z-50 flex flex-col p-6 gap-4">
+  <div id="mobile-menu"
+    class="hidden absolute top-16 left-0 w-full bg-emerald-950 border-b border-amber-100/10 shadow-xl z-50 flex flex-col p-6 gap-4">
     <a href="index.html#o-chate" class="text-amber-50 hover:text-amber-200 transition-colors py-2">O Chate</a>
     <a href="index.html#lokalita" class="text-amber-50 hover:text-amber-200 transition-colors py-2">Lokalita</a>
     <a href="index.html#fotogaleria" class="text-amber-50 hover:text-amber-200 transition-colors py-2">Fotogaléria</a>
@@ -41,7 +48,8 @@
         <span class="text-lg">🇬🇧</span>
         <span>EN</span>
       </a>
-      <a href="index.html#rezervacia" class="px-4 py-2 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-sm hover:-translate-y-0.5 transition-transform">Rezervácia</a>
+      <a href="index.html#rezervacia"
+        class="px-4 py-2 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-sm hover:-translate-y-0.5 transition-transform">Rezervácia</a>
     </div>
   </div>
 
@@ -49,66 +57,74 @@
     <header class="space-y-3">
       <p class="text-amber-300 uppercase tracking-[0.2em] text-xs">Tipy na výlety</p>
       <h1 class="text-3xl sm:text-4xl font-semibold">10 tipov na výlety z Chaty Bardejov</h1>
-      <p class="text-amber-100/80 max-w-3xl">Reálne vzdialenosti a časy, aby ste mohli rýchlo naplánovať svoj deň. Stačí si vybrať kartu a vyraziť.</p>
+      <p class="text-amber-100/80 max-w-3xl">Reálne vzdialenosti a časy, aby ste mohli rýchlo naplánovať svoj deň. Stačí
+        si vybrať kartu a vyraziť.</p>
     </header>
 
     <section class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       <article class="rounded-2xl overflow-hidden bg-emerald-900/60 border border-amber-100/10 shadow-lg">
-        <img src="Images/Bardejov.png" alt="UNESCO Centrum Bardejova" class="w-full h-56 object-cover">
+        <img src="images/Bardejov.png" alt="UNESCO Centrum Bardejova" class="w-full h-56 object-cover">
         <div class="p-5 space-y-2">
           <h3 class="text-xl font-semibold">UNESCO Centrum Bardejova</h3>
           <p class="text-amber-300 text-sm">5 min autom / 20 min pešo od chaty</p>
-          <p class="text-amber-100/80">Prejdite sa po najkrajšom námestí na Slovensku. Navštívte Baziliku sv. Egídia a radnicu.</p>
+          <p class="text-amber-100/80">Prejdite sa po najkrajšom námestí na Slovensku. Navštívte Baziliku sv. Egídia a
+            radnicu.</p>
         </div>
       </article>
 
       <article class="rounded-2xl overflow-hidden bg-emerald-900/60 border border-amber-100/10 shadow-lg">
-        <img src="Images/Kupele.jpg" alt="Bardejovské Kúpele & Kolonáda" class="w-full h-56 object-cover">
+        <img src="images/Kupele.jpg" alt="Bardejovské Kúpele & Kolonáda" class="w-full h-56 object-cover">
         <div class="p-5 space-y-2">
           <h3 class="text-xl font-semibold">Bardejovské Kúpele & Kolonáda</h3>
           <p class="text-amber-300 text-sm">10 min autom</p>
-          <p class="text-amber-100/80">Relax v historických kúpeľoch, kde sa liečila cisárovná Sisi. Ochutnajte liečivú vodu priamo na kolonáde.</p>
+          <p class="text-amber-100/80">Relax v historických kúpeľoch, kde sa liečila cisárovná Sisi. Ochutnajte liečivú
+            vodu priamo na kolonáde.</p>
         </div>
       </article>
 
       <article class="rounded-2xl overflow-hidden bg-emerald-900/60 border border-amber-100/10 shadow-lg">
-        <img src="Images/hrad_zborov.jpg" alt="Hrad Zborov (Makovica)" class="w-full h-56 object-cover">
+        <img src="images/hrad_zborov.jpg" alt="Hrad Zborov (Makovica)" class="w-full h-56 object-cover">
         <div class="p-5 space-y-2">
           <h3 class="text-xl font-semibold">Hrad Zborov (Makovica)</h3>
           <p class="text-amber-300 text-sm">12 min autom + 35 min pešia túra</p>
-          <p class="text-amber-100/80">Nenáročná turistika k jednej z najväčších zrúcanín na Slovensku. Opekiská a krásne výhľady sú odmenou za výstup.</p>
+          <p class="text-amber-100/80">Nenáročná turistika k jednej z najväčších zrúcanín na Slovensku. Opekiská a
+            krásne výhľady sú odmenou za výstup.</p>
         </div>
       </article>
 
       <article class="rounded-2xl overflow-hidden bg-emerald-900/60 border border-amber-100/10 shadow-lg">
-        <img src="Images/Bardejovské_Kúpele_skanzen_07_08.jpg" alt="Skanzen - Múzeum ľudovej architektúry" class="w-full h-56 object-cover">
+        <img src="images/skanzen.jpg" alt="Skanzen - Múzeum ľudovej architektúry" class="w-full h-56 object-cover">
         <div class="p-5 space-y-2">
           <h3 class="text-xl font-semibold">Skanzen - Múzeum ľudovej architektúry</h3>
           <p class="text-amber-300 text-sm">10 min autom (v Kúpeľoch)</p>
-          <p class="text-amber-100/80">Najstarší skanzen na Slovensku. Uvidíte tu nádherné drevené chalúpky a vzácne kostolíky.</p>
+          <p class="text-amber-100/80">Najstarší skanzen na Slovensku. Uvidíte tu nádherné drevené chalúpky a vzácne
+            kostolíky.</p>
         </div>
       </article>
 
       <article class="rounded-2xl overflow-hidden bg-emerald-900/60 border border-amber-100/10 shadow-lg">
-        <img src="Images/regetovka_1375947102_ski_6.jpg" alt="Lyžovačka v Regetovke" class="w-full h-56 object-cover">
+        <img src="images/regetovka_1375947102_ski_6.jpg" alt="Lyžovačka v Regetovke" class="w-full h-56 object-cover">
         <div class="p-5 space-y-2">
           <h3 class="text-xl font-semibold">Lyžovačka v Regetovke</h3>
           <p class="text-amber-300 text-sm">18–20 min autom</p>
-          <p class="text-amber-100/80">Obľúbené domáce stredisko Regetovka s rodinnou atmosférou a dobrými podmienkami na lyžovanie.</p>
+          <p class="text-amber-100/80">Obľúbené domáce stredisko Regetovka s rodinnou atmosférou a dobrými podmienkami
+            na lyžovanie.</p>
         </div>
       </article>
 
       <article class="rounded-2xl overflow-hidden bg-emerald-900/60 border border-amber-100/10 shadow-lg">
-        <img src="Images/dreveny-kostol-hervartov-2.jpg" alt="Drevený kostolík Hervartov (UNESCO)" class="w-full h-56 object-cover">
+        <img src="images/dreveny-kostol-hervartov-2.jpg" alt="Drevený kostolík Hervartov (UNESCO)"
+          class="w-full h-56 object-cover">
         <div class="p-5 space-y-2">
           <h3 class="text-xl font-semibold">Drevený kostolík Hervartov (UNESCO)</h3>
           <p class="text-amber-300 text-sm">15 min autom</p>
-          <p class="text-amber-100/80">Najstarší a najzachovalejší drevený kostol na Slovensku (ozajstný svetový unikát).</p>
+          <p class="text-amber-100/80">Najstarší a najzachovalejší drevený kostol na Slovensku (ozajstný svetový
+            unikát).</p>
         </div>
       </article>
 
       <article class="rounded-2xl overflow-hidden bg-emerald-900/60 border border-amber-100/10 shadow-lg">
-        <img src="Images/Makovica.jpeg" alt="Prírodné kúpalisko Makovica" class="w-full h-56 object-cover">
+        <img src="images/Makovica.jpeg" alt="Prírodné kúpalisko Makovica" class="w-full h-56 object-cover">
         <div class="p-5 space-y-2">
           <h3 class="text-xl font-semibold">Prírodné kúpalisko Makovica</h3>
           <p class="text-amber-300 text-sm">18 min autom</p>
@@ -117,16 +133,18 @@
       </article>
 
       <article class="rounded-2xl overflow-hidden bg-emerald-900/60 border border-amber-100/10 shadow-lg">
-        <img src="Images/Welness.jpg" alt="Wellness v Hoteli Ozón" class="w-full h-56 object-cover">
+        <img src="images/Welness.jpg" alt="Wellness v Hoteli Ozón" class="w-full h-56 object-cover">
         <div class="p-5 space-y-2">
           <h3 class="text-xl font-semibold">Wellness v Hoteli Ozón</h3>
           <p class="text-amber-300 text-sm">10 min autom</p>
-          <p class="text-amber-100/80">Moderný wellness komplex s bazénmi a saunovým svetom dostupný aj pre verejnosť.</p>
+          <p class="text-amber-100/80">Moderný wellness komplex s bazénmi a saunovým svetom dostupný aj pre verejnosť.
+          </p>
         </div>
       </article>
 
       <article class="rounded-2xl overflow-hidden bg-emerald-900/60 border border-amber-100/10 shadow-lg">
-        <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=800&q=80" alt="Slnečný Majer - Stebnícka Huta" class="w-full h-56 object-cover">
+        <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=800&q=80"
+          alt="Slnečný Majer - Stebnícka Huta" class="w-full h-56 object-cover">
         <div class="p-5 space-y-2">
           <h3 class="text-xl font-semibold">Slnečný Majer - Stebnícka Huta</h3>
           <p class="text-amber-300 text-sm">20 min autom</p>
@@ -135,22 +153,27 @@
       </article>
 
       <article class="rounded-2xl overflow-hidden bg-emerald-900/60 border border-amber-100/10 shadow-lg">
-        <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=80" alt="Cyklotrasy a Singletracky" class="w-full h-56 object-cover">
+        <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=80"
+          alt="Cyklotrasy a Singletracky" class="w-full h-56 object-cover">
         <div class="p-5 space-y-2">
           <h3 class="text-xl font-semibold">Cyklotrasy a Singletracky</h3>
           <p class="text-amber-300 text-sm">Priamo od chaty alebo 15 min autom</p>
-          <p class="text-amber-100/80">Liečivé singletracky v Bardejovských Kúpeľoch alebo cyklotrasa na Mníchovský potok.</p>
+          <p class="text-amber-100/80">Liečivé singletracky v Bardejovských Kúpeľoch alebo cyklotrasa na Mníchovský
+            potok.</p>
         </div>
       </article>
     </section>
 
     <div class="pt-4">
-      <a href="index.html" class="inline-flex items-center px-5 py-3 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-lg shadow-amber-400/30 hover:-translate-y-0.5 transition-transform">Späť na hlavnú stránku</a>
+      <a href="index.html"
+        class="inline-flex items-center px-5 py-3 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-lg shadow-amber-400/30 hover:-translate-y-0.5 transition-transform">Späť
+        na hlavnú stránku</a>
     </div>
   </main>
 
   <footer class="border-t border-amber-100/10 bg-emerald-950 py-6">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-amber-100/70">
+    <div
+      class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-amber-100/70">
       <span>© 2025 Chata Bardejov</span>
       <span>Kontakt: info@chatabardejov.sk · +421 900 000 000</span>
     </div>
@@ -183,5 +206,5 @@
     })();
   </script>
 </body>
-</html>
 
+</html>
