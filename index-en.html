@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cottage Bardejov | Cozy cottage in the heart of nature</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     html {
       scroll-behavior: smooth;
@@ -83,19 +84,90 @@
 
   <!-- Location -->
   <section id="location" class="bg-emerald-900/50 border-y border-amber-100/10">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 grid lg:grid-cols-2 gap-10 items-center">
-      <div class="space-y-4">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 space-y-10">
+      <!-- Introduction text -->
+      <div class="space-y-4 text-center">
         <p class="text-amber-300 uppercase tracking-[0.2em] text-xs">Location</p>
         <h2 class="text-3xl sm:text-4xl font-semibold">Bardejov and surroundings</h2>
-        <p class="text-amber-100/80">Historic center of Bardejov inscribed in UNESCO, nearby spa resorts, cycling trails and forests offer an ideal combination of culture and nature.</p>
-        <ul class="space-y-2 text-amber-100/80">
-          <li>• 10 minutes by car to Bardejov center</li>
-          <li>• Hiking trails directly from the cottage</li>
-          <li>• Spas and wellness in the nearby area</li>
-        </ul>
+        <p class="text-amber-100/80 text-lg max-w-3xl mx-auto">Discover the jewel of Šariš. Our cottage offers the perfect balance between privacy in nature and the pulse of a historic town.</p>
       </div>
+
+      <!-- Cards with images -->
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Card 1: UNESCO History -->
+        <div class="bg-emerald-900/60 border border-amber-100/10 rounded-2xl overflow-hidden shadow-xl">
+          <div class="h-56 overflow-hidden">
+            <img src="images/Bardejov.png" alt="Bardejov square" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6 space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="text-2xl">🏰</span>
+              <h3 class="text-xl font-semibold text-amber-50">UNESCO History</h3>
+            </div>
+            <p class="text-amber-100/70">Historic Town Hall Square and St. Egidius Basilica. Cultural experience just a stone's throw away.</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Hiking & Nature -->
+        <div class="bg-emerald-900/60 border border-amber-100/10 rounded-2xl overflow-hidden shadow-xl">
+          <div class="h-56 overflow-hidden">
+            <img src="images/hrad_zborov.jpg" alt="Zborov Castle" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6 space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="text-2xl">🥾</span>
+              <h3 class="text-xl font-semibold text-amber-50">Hiking & Nature</h3>
+            </div>
+            <p class="text-amber-100/70">Zborov Castle and Čergov Mountains. Hiking trails and cycling routes start right at the cottage.</p>
+          </div>
+        </div>
+
+        <!-- Card 3: Relax & Spa -->
+        <div class="bg-emerald-900/60 border border-amber-100/10 rounded-2xl overflow-hidden shadow-xl">
+          <div class="h-56 overflow-hidden">
+            <img src="images/Bardejovské_Kúpele_skanzen_07_08.jpg" alt="Bardejov Spa" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6 space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="text-2xl">💆</span>
+              <h3 class="text-xl font-semibold text-amber-50">Relax & Spa</h3>
+            </div>
+            <p class="text-amber-100/70">Famous Bardejov Spa and Open-Air Museum. Perfect relaxation and wellness treatments.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Where to find us - Compact bar -->
+      <div class="bg-emerald-950/80 border border-amber-100/10 rounded-2xl p-6">
+        <h3 class="text-xl font-semibold text-amber-50 mb-4 text-center">Where to find us</h3>
+        <div class="flex flex-wrap justify-center gap-8">
+          <div class="flex items-center gap-2">
+            <span class="text-xl">📍</span>
+            <div>
+              <span class="font-semibold text-amber-50">Perfect location:</span>
+              <span class="text-amber-100/70 text-sm ml-1">Quiet street, close to center</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xl">🚶</span>
+            <div>
+              <span class="font-semibold text-amber-50">15 min walk:</span>
+              <span class="text-amber-100/70 text-sm ml-1">Station and Billa</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xl">🚶</span>
+            <div>
+              <span class="font-semibold text-amber-50">20 min walk:</span>
+              <span class="text-amber-100/70 text-sm ml-1">UNESCO center</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map -->
       <div class="rounded-3xl bg-emerald-950 border border-amber-100/15 p-4 shadow-xl">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2264.987994823796!2d21.297969!3d49.2932524!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473e8116403f3c7f%3A0x4b182ff8d10874be!2sBardejov%205600%2C%20085%2001%20Bardejov%2C%20Slovensko!5e1!3m2!1scs!2scz!4v1765538370977!5m2!1scs!2scz" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-[400px] rounded-xl shadow-lg"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2264.987994823796!2d21.297969!3d49.2932524!3m2!1i1024!2i768!4f13.1!3m3!1m2!1scs!2scz!4v1765538370977!5m2!1scs!2scz" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-[400px] rounded-xl shadow-lg"></iframe>
       </div>
     </div>
   </section>
@@ -196,6 +268,46 @@
         <div>
           <p class="text-lg font-semibold">7+ nights</p>
           <p class="text-emerald-600 font-bold">30% discount 🏷️</p>
+        </div>
+      </div>
+      <p class="text-sm text-emerald-700 italic mt-4 text-center">* During Bardejov Fair (August 2026), a fixed price of 250€/night applies and volume discounts do not apply.</p>
+    </div>
+
+    <!-- Special Events - Notice -->
+    <div class="space-y-6">
+      <h3 class="text-2xl font-semibold text-amber-400 text-center">Special Events</h3>
+
+      <!-- Bardejov Fair -->
+      <div class="bg-gradient-to-r from-emerald-900/80 to-emerald-800/80 border-2 border-amber-400/60 rounded-2xl p-6 sm:p-8 shadow-xl">
+        <div class="flex items-start gap-4">
+          <div class="text-4xl">🎡</div>
+          <div class="flex-1 space-y-3">
+            <h4 class="text-xl font-bold text-amber-400">Bardejov Fair 2026</h4>
+            <p class="text-amber-50">During <span class="font-semibold text-amber-300">Aug 26 – Aug 31, 2026</span>, a fixed price of <span class="font-bold text-amber-400">€250 / night</span> applies for the entire chalet.</p>
+            <div class="bg-amber-400/10 border border-amber-400/30 rounded-lg p-3">
+              <p class="text-amber-100 flex items-start gap-2 text-sm">
+                <span class="text-lg flex-shrink-0">⚠️</span>
+                <span><strong class="text-amber-300">Conditions:</strong> Minimum stay <strong>5 nights</strong>. No long-stay discounts.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- New Year's Eve -->
+      <div class="bg-gradient-to-r from-emerald-900/80 to-emerald-800/80 border-2 border-amber-400/60 rounded-2xl p-6 sm:p-8 shadow-xl">
+        <div class="flex items-start gap-4">
+          <div class="text-4xl">🎆</div>
+          <div class="flex-1 space-y-3">
+            <h4 class="text-xl font-bold text-amber-400">New Year's Eve 2026/27</h4>
+            <p class="text-amber-50">During <span class="font-semibold text-amber-300">Dec 30, 2026 – Jan 2, 2027</span>, a fixed price of <span class="font-bold text-amber-400">€250 / night</span> applies for the entire chalet.</p>
+            <div class="bg-amber-400/10 border border-amber-400/30 rounded-lg p-3">
+              <p class="text-amber-100 flex items-start gap-2 text-sm">
+                <span class="text-lg flex-shrink-0">⚠️</span>
+                <span><strong class="text-amber-300">Conditions:</strong> Minimum stay <strong>2 nights</strong>. No long-stay discounts.</span>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -324,6 +436,94 @@
     </div>
   </section>
 
+  <!-- Events in Bardejov -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16 space-y-10">
+    <div class="space-y-4 text-center">
+      <p class="text-amber-300 uppercase tracking-[0.2em] text-xs">Culture and entertainment</p>
+      <h2 class="text-3xl sm:text-4xl font-semibold">What's happening in town?</h2>
+    </div>
+
+    <!-- Event cards -->
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Event 1 -->
+      <div class="bg-emerald-900/60 border border-amber-100/10 rounded-2xl p-6 space-y-4">
+        <div class="text-amber-400 text-lg font-bold">February 7, 2026</div>
+        <h3 class="text-xl font-semibold text-amber-50">FÍHA tralala Song Show</h3>
+        <p class="text-amber-100/70 text-sm">📍 Kino Žriedlo, Bardejov</p>
+        <p class="text-amber-100/60 text-sm">Musical performance for the youngest viewers.</p>
+      </div>
+
+      <!-- Event 2 -->
+      <div class="bg-emerald-900/60 border border-amber-100/10 rounded-2xl p-6 space-y-4">
+        <div class="text-amber-400 text-lg font-bold">March 27, 2026</div>
+        <h3 class="text-xl font-semibold text-amber-50">Robo Opatovský 30</h3>
+        <p class="text-amber-100/70 text-sm">📍 Chianti wine & coffee bar, Bardejov</p>
+        <p class="text-amber-100/60 text-sm">Spring tour 2026 with the popular singer.</p>
+      </div>
+
+      <!-- Event 3 -->
+      <div class="bg-emerald-900/60 border border-amber-100/10 rounded-2xl p-6 space-y-4">
+        <div class="text-amber-400 text-lg font-bold">March 27, 2026</div>
+        <h3 class="text-xl font-semibold text-amber-50">TURBO - SK TOUR 2026</h3>
+        <p class="text-amber-100/70 text-sm">📍 Mestská športová hala Mier, Bardejov</p>
+        <p class="text-amber-100/60 text-sm">Concert celebrating 45th anniversary of the legendary band.</p>
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="text-center">
+      <a href="https://www.ajdnes.sk/bardejov/t103" target="_blank" class="inline-flex items-center justify-center px-8 py-4 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-lg shadow-amber-400/30 hover:-translate-y-0.5 transition-transform">
+        View all events
+      </a>
+    </div>
+  </section>
+
+  <!-- Day Use - Discreet section -->
+  <section class="bg-neutral-950 border-t border-neutral-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-20">
+      <div class="text-center space-y-4 mb-12">
+        <h2 class="text-3xl sm:text-4xl font-semibold text-neutral-100">Your private escape</h2>
+        <p class="text-neutral-400 text-lg max-w-2xl mx-auto">Need to disappear for a moment? We offer discreet accommodation in a quiet location where no one will look for you.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+        <div class="text-center space-y-3">
+          <div class="text-4xl mb-2">🤫</div>
+          <h3 class="text-lg font-semibold text-neutral-100">Absolute discretion</h3>
+          <p class="text-neutral-400 text-sm">Contactless entry via Keybox. No reception, no meeting with the owner.</p>
+        </div>
+        <div class="text-center space-y-3">
+          <div class="text-4xl mb-2">💸</div>
+          <h3 class="text-lg font-semibold text-neutral-100">Anonymous payment</h3>
+          <p class="text-neutral-400 text-sm">Cash payment option on-site (no bank record).</p>
+        </div>
+        <div class="text-center space-y-3">
+          <div class="text-4xl mb-2">⏱</div>
+          <h3 class="text-lg font-semibold text-neutral-100">Short-term stay</h3>
+          <p class="text-neutral-400 text-sm">Rental available from just 4 hours during the day.</p>
+        </div>
+      </div>
+
+      <!-- Price -->
+      <div class="text-center mb-8">
+        <div class="inline-block bg-neutral-800/50 border border-amber-400/30 rounded-2xl px-8 py-4">
+          <p class="text-neutral-300 text-sm mb-1">Price</p>
+          <p class="text-3xl font-bold text-amber-400">€35</p>
+          <p class="text-neutral-400 text-sm mt-1">(fixed rate per stay)</p>
+        </div>
+      </div>
+
+      <div class="text-center space-y-4">
+        <a href="https://wa.me/421917185463?text=Hello,%20I%20am%20interested%20in%20a%20discreet%20appointment" target="_blank" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-green-600 hover:bg-green-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all">
+          <i class="fab fa-whatsapp text-2xl"></i>
+          Check availability via WhatsApp
+        </a>
+        <p class="text-neutral-400 text-sm">We confirm availability immediately.</p>
+        <p class="text-neutral-500 text-sm mt-2">We guarantee 100% confidentiality.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="border-t border-amber-100/10 bg-emerald-950 py-6">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-amber-100/70">
@@ -381,6 +581,41 @@
       const discountInfo = document.getElementById('discount-info');
       const submitBtn = document.getElementById('submit-btn');
 
+      // Special events pricing
+      const SPECIAL_PRICE_PER_NIGHT = 250;
+
+      // A) Bardejov Fair 2026
+      const fairStart = new Date('2026-08-26T00:00:00');
+      const fairEnd = new Date('2026-08-31T23:59:59');
+      const FAIR_MIN_NIGHTS = 5;
+
+      // B) New Year's Eve 2026/27
+      const silvesterStart = new Date('2026-12-30T00:00:00');
+      const silvesterEnd = new Date('2027-01-02T23:59:59');
+      const SILVESTER_MIN_NIGHTS = 2;
+
+      const isSpecialNight = (nightDate) => {
+        // Check if night falls within any special event period
+        const isFair = nightDate >= fairStart && nightDate <= fairEnd;
+        const isSilvester = nightDate >= silvesterStart && nightDate <= silvesterEnd;
+        return isFair || isSilvester;
+      };
+
+      const getSpecialEventType = (checkinDate, checkoutDate) => {
+        // Returns which special event(s) the booking overlaps with
+        let hasFair = false;
+        let hasSilvester = false;
+        const tempDate = new Date(checkinDate);
+
+        while (tempDate < checkoutDate) {
+          if (tempDate >= fairStart && tempDate <= fairEnd) hasFair = true;
+          if (tempDate >= silvesterStart && tempDate <= silvesterEnd) hasSilvester = true;
+          tempDate.setDate(tempDate.getDate() + 1);
+        }
+
+        return { hasFair, hasSilvester };
+      };
+
       const getDayPrice = (date) => {
         const day = date.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
         if (day === 5 || day === 6) return 120; // Friday, Saturday
@@ -407,13 +642,21 @@
           return;
         }
 
-        // Calculate nights and total price
+        // Calculate price night by night
         let totalPrice = 0;
         let nights = 0;
+        let containsSpecialNight = false;
         const currentDate = new Date(checkinDate);
 
         while (currentDate < checkoutDate) {
-          totalPrice += getDayPrice(currentDate);
+          // Check if this specific night is a special event night
+          if (isSpecialNight(currentDate)) {
+            totalPrice += SPECIAL_PRICE_PER_NIGHT;
+            containsSpecialNight = true;
+          } else {
+            // Regular pricing based on day of week
+            totalPrice += getDayPrice(currentDate);
+          }
           nights++;
           currentDate.setDate(currentDate.getDate() + 1);
         }
@@ -421,12 +664,16 @@
         // Apply discounts
         let discount = 0;
         let discountPercent = 0;
-        if (nights >= 7) {
-          discountPercent = 30;
-        } else if (nights >= 5) {
-          discountPercent = 20;
-        } else if (nights >= 3) {
-          discountPercent = 10;
+
+        // If booking contains any special event night, no discounts apply
+        if (!containsSpecialNight) {
+          if (nights >= 7) {
+            discountPercent = 30;
+          } else if (nights >= 5) {
+            discountPercent = 20;
+          } else if (nights >= 3) {
+            discountPercent = 10;
+          }
         }
 
         discount = (totalPrice * discountPercent) / 100;
@@ -437,6 +684,17 @@
         if (originalPriceEl) originalPriceEl.textContent = totalPrice.toFixed(0) + ' €';
         if (finalPriceEl) finalPriceEl.textContent = finalPrice.toFixed(0) + ' €';
 
+        // Determine which special events are included
+        const specialEvents = getSpecialEventType(checkinDate, checkoutDate);
+        let specialEventNote = '';
+        if (specialEvents.hasFair && specialEvents.hasSilvester) {
+          specialEventNote = 'Includes Bardejov Fair and New Year\'s Eve';
+        } else if (specialEvents.hasFair) {
+          specialEventNote = 'Includes Bardejov Fair';
+        } else if (specialEvents.hasSilvester) {
+          specialEventNote = 'Includes New Year\'s Eve';
+        }
+
         if (discountPercent > 0) {
           if (originalPriceEl) originalPriceEl.classList.remove('hidden');
           if (discountInfo) {
@@ -445,7 +703,14 @@
           }
         } else {
           if (originalPriceEl) originalPriceEl.classList.add('hidden');
-          if (discountInfo) discountInfo.classList.add('hidden');
+          if (discountInfo) {
+            if (containsSpecialNight) {
+              discountInfo.textContent = `${specialEventNote} - no discounts apply`;
+              discountInfo.classList.remove('hidden');
+            } else {
+              discountInfo.classList.add('hidden');
+            }
+          }
         }
 
         // Remove hidden class to show calculator
@@ -454,7 +719,8 @@
         // Update hidden field with calculation
         const kalkulaciaField = document.getElementById('kalkulacia');
         if (kalkulaciaField) {
-          kalkulaciaField.value = `Website preliminary calculation: ${finalPrice.toFixed(0)} EUR for ${nights} nights`;
+          const priceNote = containsSpecialNight ? ` (${specialEventNote})` : '';
+          kalkulaciaField.value = `Website preliminary calculation: ${finalPrice.toFixed(0)} EUR for ${nights} nights${priceNote}`;
         }
       };
 
@@ -466,6 +732,51 @@
       if (checkoutInput) {
         checkoutInput.addEventListener('input', calculatePrice);
         checkoutInput.addEventListener('change', calculatePrice);
+      }
+
+      // Form validation for special events
+      const form = document.querySelector('form[action="https://formspree.io/f/mjknjyyw"]');
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          const checkin = checkinInput.value;
+          const checkout = checkoutInput.value;
+
+          if (!checkin || !checkout) return;
+
+          const checkinDate = new Date(checkin + 'T00:00:00');
+          const checkoutDate = new Date(checkout + 'T00:00:00');
+
+          // Check which special events the booking overlaps with
+          let hasFairNight = false;
+          let hasSilvesterNight = false;
+          let nights = 0;
+          const tempDate = new Date(checkinDate);
+
+          while (tempDate < checkoutDate) {
+            if (tempDate >= fairStart && tempDate <= fairEnd) {
+              hasFairNight = true;
+            }
+            if (tempDate >= silvesterStart && tempDate <= silvesterEnd) {
+              hasSilvesterNight = true;
+            }
+            nights++;
+            tempDate.setDate(tempDate.getDate() + 1);
+          }
+
+          // Validate minimum nights for Bardejov Fair
+          if (hasFairNight && nights < FAIR_MIN_NIGHTS) {
+            e.preventDefault();
+            alert('Bookings overlapping with Bardejov Fair must be at least 5 nights long.');
+            return false;
+          }
+
+          // Validate minimum nights for New Year's Eve
+          if (hasSilvesterNight && nights < SILVESTER_MIN_NIGHTS) {
+            e.preventDefault();
+            alert('Bookings overlapping with New Year\'s Eve must be at least 2 nights long.');
+            return false;
+          }
+        });
       }
 
       // Run calculation on page load (for autofill)
