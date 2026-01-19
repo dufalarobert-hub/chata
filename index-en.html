@@ -122,21 +122,20 @@
   <a href="#about" class="skip-link">Skip to main content</a>
 
   <!-- Header -->
-  <header class="sticky top-0 z-50 backdrop-blur bg-emerald-950/90 border-b border-amber-100/10">
+  <header id="header" class="fixed top-0 w-full z-50 bg-transparent transition-all duration-300">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
-      <div class="text-lg font-semibold tracking-tight">Cottage Bardejov</div>
+      <div class="text-xl font-bold tracking-tight">Cottage Bardejov</div>
       <nav class="hidden md:flex items-center gap-6 text-sm font-medium w-full">
-        <a href="#about" class="hover:text-amber-200 transition-colors">About</a>
-        <a href="#location" class="hover:text-amber-200 transition-colors">Location</a>
-        <a href="#gallery" class="hover:text-amber-200 transition-colors">Gallery</a>
-        <a href="tipy-en.html" class="hover:text-amber-200 transition-colors">Tips</a>
-        <a href="cennik-en.html" class="hover:text-amber-200 transition-colors">Pricing</a>
+        <a href="#about" class="hover:text-amber-400 transition-colors">About</a>
+        <a href="#location" class="hover:text-amber-400 transition-colors">Location</a>
+        <a href="#gallery" class="hover:text-amber-400 transition-colors">Gallery</a>
+        <a href="tipy-en.html" class="hover:text-amber-400 transition-colors">Tips</a>
+        <a href="cennik-en.html" class="hover:text-amber-400 transition-colors">Pricing</a>
         <div class="ml-auto flex items-center gap-4">
-          <a href="index.html" class="flex items-center gap-1 hover:text-amber-200 transition-colors" title="Slovenská verzia">
-            <span class="text-lg">🇸🇰</span>
-            <span>SK</span>
+          <a href="index.html" class="flex items-center gap-1 hover:text-amber-400 transition-colors px-2 py-1 border border-amber-100/20 rounded-md" title="Slovenská verzia">
+            <span class="text-sm font-medium">SK</span>
           </a>
-          <a href="#booking" class="px-3 py-1.5 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-sm hover:-translate-y-0.5 transition-transform">Book now</a>
+          <a href="#booking" class="px-3 py-1.5 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-sm hover:scale-105 transition-all">Book now</a>
         </div>
       </nav>
       <button id="mobile-menu-btn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full bg-amber-400 text-emerald-950 font-semibold">
@@ -146,25 +145,24 @@
   </header>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-emerald-950 border-b border-amber-100/10 shadow-xl z-50 flex flex-col p-6 gap-4">
-    <a href="#about" class="text-amber-50 hover:text-amber-200 transition-colors py-2">About</a>
-    <a href="#location" class="text-amber-50 hover:text-amber-200 transition-colors py-2">Location</a>
-    <a href="#gallery" class="text-amber-50 hover:text-amber-200 transition-colors py-2">Gallery</a>
-    <a href="tipy-en.html" class="text-amber-50 hover:text-amber-200 transition-colors py-2">Tips</a>
-    <a href="cennik-en.html" class="text-amber-50 hover:text-amber-200 transition-colors py-2">Pricing</a>
+  <div id="mobile-menu" class="hidden fixed top-16 left-0 w-full bg-emerald-950/95 backdrop-blur-md border-b border-amber-100/10 shadow-xl z-40 flex flex-col p-6 gap-4">
+    <a href="#about" class="text-amber-50 hover:text-amber-400 transition-colors py-2">About</a>
+    <a href="#location" class="text-amber-50 hover:text-amber-400 transition-colors py-2">Location</a>
+    <a href="#gallery" class="text-amber-50 hover:text-amber-400 transition-colors py-2">Gallery</a>
+    <a href="tipy-en.html" class="text-amber-50 hover:text-amber-400 transition-colors py-2">Tips</a>
+    <a href="cennik-en.html" class="text-amber-50 hover:text-amber-400 transition-colors py-2">Pricing</a>
     <div class="flex items-center gap-4 pt-2 border-t border-amber-100/10">
-      <a href="index.html" class="flex items-center gap-1 text-amber-50 hover:text-amber-200 transition-colors">
-        <span class="text-lg">🇸🇰</span>
-        <span>SK</span>
+      <a href="index.html" class="text-amber-50 hover:text-amber-400 transition-colors px-3 py-1.5 border border-amber-100/20 rounded-md text-sm font-medium">
+        SK
       </a>
-      <a href="#booking" class="px-4 py-2 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-sm hover:-translate-y-0.5 transition-transform">Book now</a>
+      <a href="#booking" class="px-4 py-2 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-sm hover:scale-105 transition-all">Book now</a>
     </div>
   </div>
 
   <!-- Hero -->
-  <section class="relative isolate overflow-hidden">
+  <section class="relative isolate overflow-hidden min-h-screen flex items-center">
     <div class="absolute inset-0 bg-gradient-to-b from-emerald-900 via-emerald-950 to-emerald-950 opacity-90"></div>
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20 relative grid md:grid-cols-2 gap-12 items-center">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20 relative grid md:grid-cols-2 gap-12 items-center w-full">
       <div>
         <p class="text-amber-300 uppercase tracking-[0.2em] text-xs mb-4">Cozy cottage in nature</p>
         <h1 class="text-4xl sm:text-5xl font-semibold leading-tight mb-6">Cottage Bardejov – rest by the fireplace</h1>
@@ -1081,6 +1079,30 @@
           menuIcon.textContent = '☰';
         });
       });
+    })();
+
+    // Transparent Header Scroll Effect
+    (() => {
+      const header = document.getElementById('header');
+      if (!header) return;
+
+      const updateHeader = () => {
+        if (window.scrollY > 50) {
+          // Scrolled state: dark background with shadow
+          header.classList.add('bg-emerald-950/95', 'backdrop-blur-md', 'shadow-md', 'border-b', 'border-amber-100/10');
+          header.classList.remove('bg-transparent');
+        } else {
+          // Top state: transparent background
+          header.classList.remove('bg-emerald-950/95', 'backdrop-blur-md', 'shadow-md', 'border-b', 'border-amber-100/10');
+          header.classList.add('bg-transparent');
+        }
+      };
+
+      // Run on page load
+      updateHeader();
+
+      // Run on scroll
+      window.addEventListener('scroll', updateHeader);
     })();
   </script>
 </body>
