@@ -16,6 +16,23 @@
   <style>
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 64px;
+    }
+    /* Skip navigation link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #fbbf24;
+      color: #064e3b;
+      padding: 8px 16px;
+      text-decoration: none;
+      font-weight: 600;
+      z-index: 100;
+      border-radius: 0 0 4px 0;
+    }
+    .skip-link:focus {
+      top: 0;
     }
     /* Flatpickr custom styles */
     .flatpickr-calendar {
@@ -75,6 +92,9 @@
 </head>
 
 <body class="bg-emerald-950 text-amber-50">
+  <!-- Skip to main content -->
+  <a href="#o-chate" class="skip-link">Preskočiť na hlavný obsah</a>
+
   <!-- Header -->
   <header class="sticky top-0 z-50 backdrop-blur bg-emerald-950/90 border-b border-amber-100/10">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
@@ -155,7 +175,7 @@
     <div class="flex flex-col gap-4">
       <p class="text-amber-300 uppercase tracking-[0.2em] text-xs">O Chate</p>
       <h2 class="text-3xl sm:text-4xl font-semibold">Vybavenie a dispozícia pre váš komfort</h2>
-      <p class="text-amber-100/80 max-w-3xl">Tichá chatová oblasť len 20 minút príjemnej prechádzky od historického
+      <p class="text-amber-100/90 max-w-3xl">Tichá chatová oblasť len 20 minút príjemnej prechádzky od historického
         Radničného námestia v Bardejove. Kapacita ideálne 6 osôb (komfort), maximálne 8 osôb.</p>
     </div>
     <div class="grid md:grid-cols-3 gap-6">
@@ -184,7 +204,7 @@
       <div class="space-y-4 text-center">
         <p class="text-amber-300 uppercase tracking-[0.2em] text-xs">Lokalita</p>
         <h2 class="text-3xl sm:text-4xl font-semibold">Bardejov a okolie</h2>
-        <p class="text-amber-100/80 text-lg max-w-3xl mx-auto">Objavte klenot Šariša. Naša chata ponúka dokonalú rovnováhu medzi súkromím v prírode a tepom historického mesta.</p>
+        <p class="text-amber-100/90 text-lg max-w-3xl mx-auto">Objavte klenot Šariša. Naša chata ponúka dokonalú rovnováhu medzi súkromím v prírode a tepom historického mesta.</p>
       </div>
 
       <!-- Karty s obrázkami -->
@@ -272,13 +292,13 @@
     <div class="flex flex-col gap-4">
       <p class="text-amber-300 uppercase tracking-[0.2em] text-xs">Lokalita a aktivity</p>
       <h2 class="text-3xl sm:text-4xl font-semibold">Čo robiť v okolí</h2>
-      <p class="text-amber-100/80 max-w-3xl">Vyberte si z tipov na zimné športy, letné osvieženie aj unikátne atrakcie.
+      <p class="text-amber-100/90 max-w-3xl">Vyberte si z tipov na zimné športy, letné osvieženie aj unikátne atrakcie.
         Všetko v dostupnej vzdialenosti od chaty.</p>
     </div>
     <div class="grid lg:grid-cols-3 gap-6">
       <div class="p-6 rounded-2xl bg-emerald-900/60 border border-amber-100/10 space-y-3">
         <h3 class="text-xl font-semibold">Zimné športy</h3>
-        <ul class="space-y-2 text-amber-100/80">
+        <ul class="space-y-2 text-amber-100/90">
           <li>• Ski Regetovka (18 km) – obľúbené domáce stredisko.</li>
           <li>• Tylicz Ski & Master Ski (Poľsko, 18 km) – špičkové rodinné strediská.</li>
           <li>• Jaworzyna Krynicka (Poľsko, 30 km) – najdlhšia kabínková lanovka v okolí.</li>
@@ -286,7 +306,7 @@
       </div>
       <div class="p-6 rounded-2xl bg-emerald-900/60 border border-amber-100/10 space-y-3">
         <h3 class="text-xl font-semibold">Leto a voda</h3>
-        <ul class="space-y-2 text-amber-100/80">
+        <ul class="space-y-2 text-amber-100/90">
           <li>• Prírodné kúpalisko Makovica (14 km smer Svidník).</li>
           <li>• Bardejovské Kúpele (5 km) – wellness v hoteli Ozón, skanzen, kúpalisko.</li>
           <li>• Vodný svet Aquaruthenia Svidník (20 km).</li>
@@ -294,7 +314,7 @@
       </div>
       <div class="p-6 rounded-2xl bg-emerald-900/60 border border-amber-100/10 space-y-3">
         <h3 class="text-xl font-semibold">Unikátne atrakcie</h3>
-        <ul class="space-y-2 text-amber-100/80">
+        <ul class="space-y-2 text-amber-100/90">
           <li>• UNESCO centrum Bardejova (Bazilika sv. Egídia).</li>
           <li>• Chodník korunami stromov (Wieża Widokowa) v Krynici.</li>
           <li>• Turistika na Zborovský hrad alebo rozhľadňu Kamenná hora.</li>
@@ -313,7 +333,7 @@
     <div class="flex flex-col gap-4">
       <p class="text-amber-300 uppercase tracking-[0.2em] text-xs">Fotogaléria</p>
       <h2 class="text-3xl sm:text-4xl font-semibold">Interiér aj exteriér</h2>
-      <p class="text-amber-100/80 max-w-2xl">Pozrite si atmosféru chaty – drevené detaily, útulný krb a prírodu v okolí.
+      <p class="text-amber-100/90 max-w-2xl">Pozrite si atmosféru chaty – drevené detaily, útulný krb a prírodu v okolí.
         Nahraďte placeholdery vlastnými fotografiami.</p>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -331,7 +351,7 @@
     <div class="flex flex-col gap-4">
       <p class="text-amber-300 uppercase tracking-[0.2em] text-xs">Cenník</p>
       <h2 class="text-3xl sm:text-4xl font-semibold">Ceny za ubytovanie</h2>
-      <p class="text-amber-100/80 max-w-3xl">Ceny sú za celý objekt na noc, maximálne pre 6 osôb. Bezplatné storno je
+      <p class="text-amber-100/90 max-w-3xl">Ceny sú za celý objekt na noc, maximálne pre 6 osôb. Bezplatné storno je
         možné do 7 dní pred nástupom a vratná kaucia je 10 % z ceny ubytovania. <a href="cennik.html"
           class="text-amber-300 hover:text-amber-200 underline">Pozrite si detailný cenník</a>.</p>
     </div>
@@ -459,10 +479,10 @@
             </article>
           </div>
         </div>
-        <button type="button" data-review-prev
-          class="absolute left-2 top-1/2 -translate-y-1/2 bg-white text-emerald-950 rounded-full shadow-lg w-10 h-10 flex items-center justify-center hover:-translate-y-1/2 hover:scale-105 transition">‹</button>
-        <button type="button" data-review-next
-          class="absolute right-2 top-1/2 -translate-y-1/2 bg-white text-emerald-950 rounded-full shadow-lg w-10 h-10 flex items-center justify-center hover:-translate-y-1/2 hover:scale-105 transition">›</button>
+        <button type="button" data-review-prev aria-label="Predchádzajúca recenzia"
+          class="absolute left-2 top-1/2 -translate-y-1/2 bg-white text-emerald-950 rounded-full shadow-lg w-10 h-10 flex items-center justify-center hover:-translate-y-1/2 hover:scale-105 transition focus:ring-2 focus:ring-amber-400 focus:outline-none">‹</button>
+        <button type="button" data-review-next aria-label="Ďalšia recenzia"
+          class="absolute right-2 top-1/2 -translate-y-1/2 bg-white text-emerald-950 rounded-full shadow-lg w-10 h-10 flex items-center justify-center hover:-translate-y-1/2 hover:scale-105 transition focus:ring-2 focus:ring-amber-400 focus:outline-none">›</button>
       </div>
       <div class="flex items-center justify-center gap-2">
         <button type="button" data-review-dot class="w-3 h-3 rounded-full bg-emerald-200"></button>
@@ -480,7 +500,7 @@
       <div class="flex flex-col gap-4 mb-8">
         <p class="text-amber-300 uppercase tracking-[0.2em] text-xs">Rezervácia</p>
         <h2 class="text-3xl sm:text-4xl font-semibold">Naplánujte si pobyt</h2>
-        <p class="text-amber-100/80 max-w-2xl">Rezervujte si svoj termín včas. Chata je ideálna pre rodiny aj partie
+        <p class="text-amber-100/90 max-w-2xl">Rezervujte si svoj termín včas. Chata je ideálna pre rodiny aj partie
           priateľov. Vyplňte formulár a čoskoro sa vám ozveme s potvrdením termínu.</p>
       </div>
       <form action="https://formspree.io/f/mjknjyyw" method="POST"
@@ -488,46 +508,46 @@
         <input type="text" name="_gotcha" style="display:none">
         <input type="hidden" id="kalkulacia" name="kalkulacia" value="">
         <div class="grid md:grid-cols-2 gap-4">
-          <label class="space-y-2 text-sm">
-            <span class="text-amber-100/80">Meno a priezvisko</span>
-            <input type="text" name="meno" required
-              class="w-full px-4 py-3 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50"
+          <div class="space-y-2">
+            <label for="meno" class="text-amber-100/90 text-sm block">Meno a priezvisko</label>
+            <input type="text" id="meno" name="meno" required
+              class="w-full px-4 py-4 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50"
               placeholder="Vaše meno" />
-          </label>
-          <label class="space-y-2 text-sm">
-            <span class="text-amber-100/80">Email</span>
-            <input type="email" name="email" required
-              class="w-full px-4 py-3 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50"
+          </div>
+          <div class="space-y-2">
+            <label for="email" class="text-amber-100/90 text-sm block">Email</label>
+            <input type="email" id="email" name="email" required
+              class="w-full px-4 py-4 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50"
               placeholder="vas@email.com" />
-          </label>
+          </div>
         </div>
         <div class="grid md:grid-cols-2 gap-4">
-          <label class="space-y-2 text-sm">
-            <span class="text-amber-100/80">Telefónne číslo</span>
-            <input type="tel" name="telefon"
-              class="w-full px-4 py-3 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50"
+          <div class="space-y-2">
+            <label for="telefon" class="text-amber-100/90 text-sm block">Telefónne číslo</label>
+            <input type="tel" id="telefon" name="telefon"
+              class="w-full px-4 py-4 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50"
               placeholder="+421 9.." />
-          </label>
-          <label class="space-y-2 text-sm">
-            <span class="text-amber-100/80">Počet osôb</span>
-            <input type="number" name="pocet_osob" min="1"
-              class="w-full px-4 py-3 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50"
+          </div>
+          <div class="space-y-2">
+            <label for="pocet_osob" class="text-amber-100/90 text-sm block">Počet osôb</label>
+            <input type="number" id="pocet_osob" name="pocet_osob" min="1"
+              class="w-full px-4 py-4 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50"
               placeholder="4 osoby" />
-          </label>
+          </div>
         </div>
         <div class="grid md:grid-cols-2 gap-4">
-          <label class="space-y-2 text-sm">
-            <span class="text-amber-100/80">Dátum príchodu</span>
-            <input type="text" id="checkin" name="datum_prichodu" required readonly
-              class="w-full px-4 py-3 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50 cursor-pointer"
+          <div class="space-y-2">
+            <label for="checkin" class="text-amber-100/90 text-sm block">Dátum príchodu</label>
+            <input type="text" id="checkin" name="datum_prichodu" required
+              class="w-full px-4 py-4 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50 cursor-pointer"
               placeholder="Vyberte dátum" />
-          </label>
-          <label class="space-y-2 text-sm">
-            <span class="text-amber-100/80">Dátum odchodu</span>
-            <input type="text" id="checkout" name="datum_odchodu" required readonly
-              class="w-full px-4 py-3 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50 cursor-pointer"
+          </div>
+          <div class="space-y-2">
+            <label for="checkout" class="text-amber-100/90 text-sm block">Dátum odchodu</label>
+            <input type="text" id="checkout" name="datum_odchodu" required
+              class="w-full px-4 py-4 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50 cursor-pointer"
               placeholder="Vyberte dátum" />
-          </label>
+          </div>
         </div>
         <div id="price-calculator" class="hidden bg-emerald-50 text-emerald-900 p-4 rounded-lg space-y-2">
           <div class="flex justify-between items-center">
@@ -544,14 +564,14 @@
             <span id="final-price" class="text-2xl font-bold text-emerald-900">0 €</span>
           </div>
         </div>
-        <label class="space-y-2 text-sm">
-          <span class="text-amber-100/80">Poznámka</span>
-          <textarea name="sprava" rows="4"
-            class="w-full px-4 py-3 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50"
+        <div class="space-y-2">
+          <label for="sprava" class="text-amber-100/90 text-sm block">Poznámka</label>
+          <textarea id="sprava" name="sprava" rows="4"
+            class="w-full px-4 py-4 rounded-xl bg-emerald-900 border border-amber-100/10 focus:outline-none focus:ring-2 focus:ring-amber-300 text-amber-50"
             placeholder="Preferencie, špeciálne požiadavky..."></textarea>
-        </label>
+        </div>
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <label class="inline-flex items-start gap-2 text-sm text-amber-100/80">
+          <label class="inline-flex items-start gap-2 text-sm text-amber-100/90">
             <input type="checkbox" required
               class="mt-1 w-4 h-4 rounded border-amber-100/40 bg-emerald-900 text-amber-400 focus:ring-amber-300" />
             <span>Súhlasím so spracovaním osobných údajov a so <a href="podmienky.html" target="_blank"
@@ -695,7 +715,8 @@
           altFormat: 'd.m.Y',
           minDate: 'today',
           disable: bookedDates,
-          disableMobile: true
+          disableMobile: true,
+          allowInput: true
         };
 
         // Destroy existing pickers if any
