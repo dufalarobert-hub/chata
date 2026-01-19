@@ -3,54 +3,222 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Všeobecné obchodné podmienky a GDPR - Chata Bardejov</title>
+  <title>Všeobecné obchodné podmienky - Chata Bardejov</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
   </style>
 </head>
 <body class="bg-emerald-950 text-amber-50">
-  <header class="border-b border-amber-100/10 bg-emerald-950/90 backdrop-blur">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center">
-      <span class="text-lg font-semibold tracking-tight">Chata Bardejov</span>
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-emerald-950/90 border-b border-amber-100/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+      <a href="index.html" class="text-lg font-semibold tracking-tight">Chata Bardejov</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="index.html#o-chate" class="hover:text-amber-200 transition-colors">O Chate</a>
+        <a href="index.html#lokalita" class="hover:text-amber-200 transition-colors">Lokalita</a>
+        <a href="index.html#fotogaleria" class="hover:text-amber-200 transition-colors">Fotogaléria</a>
+        <a href="tipy.html" class="hover:text-amber-200 transition-colors">10 tipov v okolí</a>
+        <a href="cennik.html" class="hover:text-amber-200 transition-colors">Cenník</a>
+        <div class="ml-auto flex items-center gap-4">
+          <a href="podmienky-en.html" class="flex items-center gap-1 hover:text-amber-200 transition-colors" title="English version">
+            <span class="text-lg">🇬🇧</span>
+            <span>EN</span>
+          </a>
+          <a href="index.html#rezervacia" class="px-3 py-1.5 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-sm hover:-translate-y-0.5 transition-transform">Rezervácia</a>
+        </div>
+      </nav>
+      <button id="mobile-menu-btn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full bg-amber-400 text-emerald-950 font-semibold">
+        <span id="menu-icon">☰</span>
+      </button>
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-10">
-    <header class="space-y-3">
-      <p class="text-amber-300 uppercase tracking-[0.2em] text-xs">Podmienky</p>
-      <h1 class="text-3xl sm:text-4xl font-semibold">Všeobecné obchodné podmienky a GDPR - Chata Bardejov</h1>
-    </header>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-emerald-950 border-b border-amber-100/10 shadow-xl z-50 flex flex-col p-6 gap-4">
+    <a href="index.html#o-chate" class="text-amber-50 hover:text-amber-200 transition-colors py-2">O Chate</a>
+    <a href="index.html#lokalita" class="text-amber-50 hover:text-amber-200 transition-colors py-2">Lokalita</a>
+    <a href="index.html#fotogaleria" class="text-amber-50 hover:text-amber-200 transition-colors py-2">Fotogaléria</a>
+    <a href="tipy.html" class="text-amber-50 hover:text-amber-200 transition-colors py-2">10 tipov v okolí</a>
+    <a href="cennik.html" class="text-amber-50 hover:text-amber-200 transition-colors py-2">Cenník</a>
+    <div class="flex items-center gap-4 pt-2 border-t border-amber-100/10">
+      <a href="podmienky-en.html" class="flex items-center gap-1 text-amber-50 hover:text-amber-200 transition-colors">
+        <span class="text-lg">🇬🇧</span>
+        <span>EN</span>
+      </a>
+      <a href="index.html#rezervacia" class="px-4 py-2 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-sm hover:-translate-y-0.5 transition-transform">Rezervácia</a>
+    </div>
+  </div>
 
-    <section class="space-y-3 bg-emerald-900/50 border border-amber-100/10 rounded-2xl p-6">
-      <h2 class="text-2xl font-semibold">1. Ochrana údajov (GDPR)</h2>
-      <p class="text-amber-100/80">Prevádzkovateľ zhromažďuje meno, email a telefónne číslo výlučne za účelom vybavenia rezervácie. Údaje neposkytujeme tretím stranám a spracúvame ich len v nevyhnutnom rozsahu.</p>
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-16 space-y-12">
+    <!-- Header -->
+    <div class="space-y-4">
+      <p class="text-amber-300 uppercase tracking-[0.2em] text-xs">Právne informácie</p>
+      <h1 class="text-3xl sm:text-4xl font-semibold">Všeobecné obchodné podmienky</h1>
+      <p class="text-amber-100/90">Platné od 1. januára 2025</p>
+    </div>
+
+    <!-- 1. Úvodné ustanovenia -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-semibold text-amber-400">1. Úvodné ustanovenia</h2>
+      <div class="text-amber-100/90 space-y-3">
+        <p>Tieto Všeobecné obchodné podmienky (ďalej len "VOP") upravujú vzájomné práva a povinnosti medzi prenajímateľom a nájomcom pri prenájme rekreačnej chaty Chata Bardejov.</p>
+        <p><strong>Prenajímateľ:</strong> [Vaše meno/názov firmy]<br>
+        <strong>Adresa:</strong> [Adresa chaty]<br>
+        <strong>Email:</strong> info@chatabardejov.sk<br>
+        <strong>Telefón:</strong> +421 900 000 000</p>
+      </div>
     </section>
 
-    <section class="space-y-3 bg-emerald-900/50 border border-amber-100/10 rounded-2xl p-6">
-      <h2 class="text-2xl font-semibold">2. Pravidlá pobytu</h2>
-      <ul class="list-disc list-inside text-amber-100/80 space-y-2">
-        <li>Check-in od 14:00, check-out do 10:00.</li>
-        <li>Nočný kľud od 22:00.</li>
-        <li>Zákaz fajčenia v interiéri.</li>
-      </ul>
+    <!-- 2. Rezervácia a platba -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-semibold text-amber-400">2. Rezervácia a platba</h2>
+      <div class="text-amber-100/90 space-y-3">
+        <p>2.1. Rezervácia sa považuje za záväznú po potvrdení prenajímateľom e-mailom alebo telefonicky.</p>
+        <p>2.2. Platba sa vykonáva v hotovosti pri príchode, pokiaľ nie je dohodnuté inak.</p>
+        <p>2.3. Pri rezervácii dlhších ako 7 dní môže prenajímateľ požadovať zálohu vo výške 30% z celkovej ceny.</p>
+        <p>2.4. Ceny zahŕňajú ubytovanie, posteľnú bielizeň, Wi-Fi, parkovanie a drevo do krbu.</p>
+      </div>
     </section>
 
-    <section class="space-y-3 bg-emerald-900/50 border border-amber-100/10 rounded-2xl p-6">
-      <h2 class="text-2xl font-semibold">3. Storno podmienky</h2>
-      <p class="text-amber-100/80">Bezplatné zrušenie do 14 dní pred príchodom.</p>
+    <!-- 3. Kaucia -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-semibold text-amber-400">3. Vratná kaucia</h2>
+      <div class="text-amber-100/90 space-y-3">
+        <p>3.1. Pri príchode je nájomca povinný zložiť vratnú kauciu vo výške 10% z celkovej ceny rezervácie, minimálne však 100 €.</p>
+        <p>3.2. Kaucia slúži na pokrytie prípadných škôd spôsobených nájomcom.</p>
+        <p>3.3. Kaucia bude vrátená v plnej výške pri odchode, ak neboli zistené žiadne škody a objekt je odovzdaný v pôvodnom stave.</p>
+        <p>3.4. V prípade vzniku škôd bude z kaucie odpočítaná suma zodpovedajúca výške škody.</p>
+      </div>
     </section>
 
-    <div class="pt-2">
-      <a href="index.html" class="inline-flex items-center px-5 py-3 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-lg shadow-amber-400/30 hover:-translate-y-0.5 transition-transform">Späť na hlavnú stránku</a>
+    <!-- 4. Storno podmienky -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-semibold text-amber-400">4. Storno podmienky</h2>
+      <div class="text-amber-100/90 space-y-3">
+        <p>4.1. Nájomca môže zrušiť rezerváciu bezplatne do 14 dní pred plánovaným príchodom.</p>
+        <p>4.2. Pri zrušení rezervácie menej ako 14 dní pred príchodom sa účtuje storno poplatok vo výške 50% z celkovej ceny.</p>
+        <p>4.3. Pri zrušení rezervácie menej ako 7 dní pred príchodom sa účtuje storno poplatok vo výške 100% z celkovej ceny.</p>
+        <p>4.4. V prípade špeciálnych udalostí (Bardejovský jarmok, Silvester) platia osobitné storno podmienky uvedené pri rezervácii.</p>
+      </div>
+    </section>
+
+    <!-- 5. Check-in a Check-out -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-semibold text-amber-400">5. Check-in a Check-out</h2>
+      <div class="text-amber-100/90 space-y-3">
+        <p>5.1. <strong>Check-in:</strong> Od 14:00 hod.</p>
+        <p>5.2. <strong>Check-out:</strong> Do 10:00 hod.</p>
+        <p>5.3. Iný čas príchodu/odchodu je možné dohodnúť vopred s prenajímateľom.</p>
+        <p>5.4. Pri check-ine prebehne odovzdanie kľúčov a oboznámenie s objektom.</p>
+        <p>5.5. Pri check-oute je nájomca povinný odovzdať objekt v čistom a upratanom stave.</p>
+      </div>
+    </section>
+
+    <!-- 6. Pravidlá pobytu -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-semibold text-amber-400">6. Pravidlá pobytu</h2>
+      <div class="text-amber-100/90 space-y-3">
+        <p>6.1. V objekte je zakázané fajčiť.</p>
+        <p>6.2. Domáce zvieratá sú povolené len po predchádzajúcej dohode s prenajímateľom.</p>
+        <p>6.3. Maximálny počet osôb: 6 (komfortne) až 8 (maximálne).</p>
+        <p>6.4. Nočný kľud je od 22:00 do 7:00 hod.</p>
+        <p>6.5. Nájomca je povinný dodržiavať pravidlá separácie odpadu.</p>
+        <p>6.6. Používanie grilu a ohňa je povolené len na určených miestach a s dodržaním protipožiarnych opatrení.</p>
+      </div>
+    </section>
+
+    <!-- 7. Zodpovednosť -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-semibold text-amber-400">7. Zodpovednosť</h2>
+      <div class="text-amber-100/90 space-y-3">
+        <p>7.1. Prenajímateľ nezodpovedá za straty alebo škody na osobných veciach nájomcu.</p>
+        <p>7.2. Nájomca zodpovedá za škody spôsobené na zariadení a vybavení objektu počas pobytu.</p>
+        <p>7.3. Nájomca je povinný hlásiť akékoľvek poškodenie alebo poruchu prenajímateľovi bezodkladne.</p>
+        <p>7.4. Prenajímateľ si vyhradzuje právo ukončiť pobyt nájomcu pri hrubom porušení VOP bez nároku na vrátenie platby.</p>
+      </div>
+    </section>
+
+    <!-- 8. Ochrana osobných údajov (GDPR) -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-semibold text-amber-400">8. Ochrana osobných údajov (GDPR)</h2>
+      <div class="text-amber-100/90 space-y-3">
+        <p>8.1. Prenajímateľ spracováva osobné údaje nájomcu v súlade s Nariadením GDPR (EU) 2016/679.</p>
+        <p>8.2. Osobné údaje (meno, email, telefón) sú spracovávané výhradne na účely rezervácie a komunikácie.</p>
+        <p>8.3. Osobné údaje nie sú poskytované tretím stranám bez súhlasu nájomcu.</p>
+        <p>8.4. Nájomca má právo na prístup, opravu alebo vymazanie svojich osobných údajov.</p>
+        <p>8.5. Osobné údaje sú uchovávané po dobu nevyhnutnú na účely vyúčtovania a archívov (max. 5 rokov).</p>
+      </div>
+    </section>
+
+    <!-- 9. Záverečné ustanovenia -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-semibold text-amber-400">9. Záverečné ustanovenia</h2>
+      <div class="text-amber-100/90 space-y-3">
+        <p>9.1. Tieto VOP sú platné od 1. januára 2025.</p>
+        <p>9.2. Prenajímateľ si vyhradzuje právo zmeniť tieto VOP. Zmeny nadobúdajú účinnosť ich zverejnením na webovej stránke.</p>
+        <p>9.3. Pre riešenie sporov je príslušný súd podľa sídla prenajímateľa.</p>
+        <p>9.4. Podaním rezervácie nájomca potvrdzuje, že sa oboznámil s týmito VOP a súhlasí s nimi.</p>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <div class="border-t border-amber-100/10 pt-8">
+      <div class="bg-emerald-900/60 border border-amber-100/10 rounded-2xl p-6 space-y-4">
+        <h3 class="text-xl font-semibold">Máte otázky?</h3>
+        <p class="text-amber-100/90">Ak máte akékoľvek otázky týkajúce sa VOP alebo rezervácie, neváhajte nás kontaktovať.</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="mailto:info@chatabardejov.sk" class="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 transition-colors">
+            📧 info@chatabardejov.sk
+          </a>
+          <a href="tel:+421900000000" class="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 transition-colors">
+            📞 +421 900 000 000
+          </a>
+        </div>
+      </div>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer class="border-t border-amber-100/10 bg-emerald-950 py-6">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-sm text-amber-100/70">
-      © 2025 Chata Bardejov
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-amber-100/70">
+      <span>© 2025 Chata Bardejov</span>
+      <div class="flex gap-4">
+        <a href="podmienky.html" class="hover:text-amber-200 transition-colors">VOP</a>
+        <span>·</span>
+        <span>Kontakt: info@chatabardejov.sk · +421 900 000 000</span>
+      </div>
     </div>
   </footer>
+
+  <script>
+    // Mobile Menu
+    (() => {
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      const menuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+
+      if (!menuBtn || !mobileMenu || !menuIcon) return;
+
+      const toggleMenu = () => {
+        mobileMenu.classList.toggle('hidden');
+        menuIcon.textContent = mobileMenu.classList.contains('hidden') ? '☰' : '✕';
+      };
+
+      menuBtn.addEventListener('click', toggleMenu);
+
+      // Close menu when clicking on any link
+      menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuIcon.textContent = '☰';
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
-
