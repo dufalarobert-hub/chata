@@ -63,22 +63,22 @@ Po uložení sa tento termín **automaticky zablokuje** na stránke pri ďalšom
 
 ## 🌐 Kde je iCal URL nastavená?
 
-V súboroch `index.html` a `index-en.html`, riadok ~735:
+V **Vercel Environment Variables**:
+- Premenná: `GOOGLE_ICAL_URL`
+- Hodnota: Tvoj iCal link z Google Calendar
 
-```javascript
-const GOOGLE_ICAL_URL = 'https://calendar.google.com/calendar/ical/9df8165438f7bff5ffbc9aa5f9063d4098060108a32e4c493c1f4b8f09279197%40group.calendar.google.com/private-5798c538273c23f911d19f8c555c101d/basic.ics';
-```
+Stránka volá `/api/calendar` endpoint, ktorý číta túto premennú a vracia obsadené dátumy.
 
 ---
 
 ## 🔧 Ako zmeniť kalendár (ak potrebuješ):
 
-1. Otvor `index.html` v editore
-2. Nájdi riadok s `const GOOGLE_ICAL_URL =`
-3. Nahraď URL za nový iCal link z Google Kalendára
-4. Rovnako uprav `index-en.html`
-5. Commit a push zmeny do GitHub
-6. Vercel automaticky redeploy
+1. Choď na Vercel: https://vercel.com/dufalarobert-hubs-projects/chata-two/settings/environment-variables
+2. Nájdi premennú `GOOGLE_ICAL_URL`
+3. Klikni **Edit**
+4. Nahraď URL za nový iCal link z Google Kalendára
+5. Klikni **Save**
+6. Vercel automaticky redeploy (môže trvať 1-2 min)
 
 ---
 

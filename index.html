@@ -730,86 +730,32 @@
   </footer>
 
   <script>
-    // Flatpickr initialization with iCal parsing
+    // Flatpickr initialization with calendar API
     (() => {
-      // GOOGLE CALENDAR iCAL URL - vložte sem svoj odkaz z Google Calendar
-      const GOOGLE_ICAL_URL = 'https://calendar.google.com/calendar/ical/9df8165438f7bff5ffbc9aa5f9063d4098060108a32e4c493c1f4b8f09279197%40group.calendar.google.com/private-5798c538273c23f911d19f8c555c101d/basic.ics';
-
       let bookedDates = [];
       let checkinPicker = null;
       let checkoutPicker = null;
 
-      // Parse iCal format to extract booked dates
-      const parseICS = (icsContent) => {
-        const dates = new Set();
-
-        // Match all VEVENT blocks
-        const eventRegex = /BEGIN:VEVENT([\s\S]*?)END:VEVENT/g;
-        const events = [...icsContent.matchAll(eventRegex)];
-
-        events.forEach(eventMatch => {
-          const eventContent = eventMatch[1];
-
-          // Extract DTSTART and DTEND
-          const dtstartMatch = eventContent.match(/DTSTART[;:]([^\r\n]+)/);
-          const dtendMatch = eventContent.match(/DTEND[;:]([^\r\n]+)/);
-
-          if (dtstartMatch && dtendMatch) {
-            let startStr = dtstartMatch[1].split(':').pop();
-            let endStr = dtendMatch[1].split(':').pop();
-
-            // Parse date (format: YYYYMMDD or YYYYMMDDTHHMMSS)
-            const parseICSDate = (str) => {
-              const year = str.substring(0, 4);
-              const month = str.substring(4, 6);
-              const day = str.substring(6, 8);
-              return new Date(`${year}-${month}-${day}T00:00:00`);
-            };
-
-            const startDate = parseICSDate(startStr);
-            const endDate = parseICSDate(endStr);
-
-            // Add all dates between start and end (exclusive of end date)
-            const current = new Date(startDate);
-            while (current < endDate) {
-              dates.add(current.toISOString().split('T')[0]);
-              current.setDate(current.getDate() + 1);
-            }
-          }
-        });
-
-        return Array.from(dates).sort();
-      };
-
-      // Fetch and parse iCal data
+      // Fetch booked dates from API
       const loadBookedDates = async () => {
-        // Skip if URL is not configured
-        if (!GOOGLE_ICAL_URL || GOOGLE_ICAL_URL === '') {
-          console.log('iCal URL not configured - showing all dates as available');
-          initFlatpickr();
-          return;
-        }
-
         try {
-          // Use CORS proxy to fetch iCal
-          const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(GOOGLE_ICAL_URL);
-          const response = await fetch(proxyUrl);
+          const response = await fetch('/api/calendar');
 
-          if (!response.ok) throw new Error('Failed to fetch calendar');
+          if (!response.ok) throw new Error('Calendar API unavailable');
 
-          const icsContent = await response.text();
-          const dates = parseICS(icsContent);
+          const data = await response.json();
 
-          console.log('Načítané obsadené termíny:', dates);
+          if (data.success && data.bookedDates) {
+            console.log('Načítané obsadené termíny:', data.bookedDates);
+            // Convert string dates to Date objects for Flatpickr
+            bookedDates = data.bookedDates.map(dateStr => new Date(dateStr + 'T00:00:00'));
+          }
 
-          // Convert to Date objects for Flatpickr
-          bookedDates = dates.map(dateStr => new Date(dateStr + 'T00:00:00'));
-
-          // Reinitialize pickers with booked dates
+          // Initialize pickers with booked dates
           initFlatpickr();
         } catch (err) {
           console.error('Failed to load calendar:', err);
-          // Silently fail - don't show error to user
+          // Silently fail - don't show error to user, just show all dates as available
           initFlatpickr();
         }
       };
