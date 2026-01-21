@@ -18,7 +18,5 @@
     "url": "https://github.com/dufalarobert-hub/chata/issues"
   },
   "homepage": "https://github.com/dufalarobert-hub/chata#readme",
-  "dependencies": {
-    "node-ical": "^0.22.1"
-  }
+  "dependencies": {}
 }

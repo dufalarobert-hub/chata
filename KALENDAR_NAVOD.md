@@ -18,18 +18,25 @@ Odošle cez Formspree
     ↓
 Dostaneš email s rezerváciou
     ↓
-Manuálne pridáš udalosť do Google Kalendára
+Formspree Plugin automaticky zapíše do Google Kalendára
+    (alebo pridáš manuálne, ak plugin nie je nastavený)
 ```
 
 ### 2. Blokovanie obsadených dátumov:
 ```
-JavaScript na stránke
+Používateľ otvorí stránku
     ↓
-Stiahne .ics súbor z Google Kalendára
+Frontend zavolá /api/calendar
     ↓
-Parsuje udalosti (DTSTART, DTEND)
+Backend načíta GOOGLE_ICAL_URL z environment variable
     ↓
-Zablokuje dátumy v kalendári na stránke
+Backend stiahne .ics súbor (jednoduchý fetch, bez autentifikácie)
+    ↓
+Backend parsuje DTSTART/DTEND z VEVENT blokov
+    ↓
+Backend vráti JSON: {success: true, bookedDates: ["2026-01-20", ...]}
+    ↓
+Frontend zablokuje dátumy v Flatpickr kalendári
     ↓
 Používateľ vidí červené prečiarknuté dni
 ```
