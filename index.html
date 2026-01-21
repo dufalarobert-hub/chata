@@ -150,20 +150,29 @@
     </div>
   </header>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-menu"
-    class="hidden fixed top-[100px] left-0 w-full bg-emerald-950/95 backdrop-blur-md border-b border-amber-100/10 shadow-xl z-40 flex flex-col p-6 gap-4">
-    <a href="#o-chate" class="text-amber-50 hover:text-amber-400 transition-colors py-2">O Chate</a>
-    <a href="#lokalita" class="text-amber-50 hover:text-amber-400 transition-colors py-2">Lokalita</a>
-    <a href="#fotogaleria" class="text-amber-50 hover:text-amber-400 transition-colors py-2">Fotogaléria</a>
-    <a href="tipy.html" class="text-amber-50 hover:text-amber-400 transition-colors py-2">10 tipov v okolí</a>
-    <a href="cennik.html" class="text-amber-50 hover:text-amber-400 transition-colors py-2">Cenník</a>
-    <div class="flex items-center gap-4 pt-2 border-t border-amber-100/10">
-      <a href="index-en.html" class="text-amber-50 hover:text-amber-400 transition-colors px-3 py-1.5 border border-amber-100/20 rounded-md text-sm font-medium">
-        EN
-      </a>
-      <a href="#rezervacia"
-        class="px-4 py-2 rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-sm hover:scale-105 transition-all">Rezervácia</a>
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="hidden fixed inset-0 z-[60] bg-[#0B231E]">
+    <!-- Close Button -->
+    <button id="mobile-menu-close" class="absolute top-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-amber-400 text-emerald-950 text-2xl font-bold hover:scale-110 transition-transform">
+      ✕
+    </button>
+
+    <!-- Menu Content -->
+    <div class="flex flex-col items-center justify-center h-full space-y-8 px-6">
+      <a href="#o-chate" class="text-3xl font-semibold text-amber-50 hover:text-amber-400 transition-colors">O Chate</a>
+      <a href="#lokalita" class="text-3xl font-semibold text-amber-50 hover:text-amber-400 transition-colors">Lokalita</a>
+      <a href="#fotogaleria" class="text-3xl font-semibold text-amber-50 hover:text-amber-400 transition-colors">Fotogaléria</a>
+      <a href="tipy.html" class="text-3xl font-semibold text-amber-50 hover:text-amber-400 transition-colors">10 tipov v okolí</a>
+      <a href="cennik.html" class="text-3xl font-semibold text-amber-50 hover:text-amber-400 transition-colors">Cenník</a>
+
+      <div class="flex flex-col items-center gap-4 pt-4 border-t border-amber-100/20">
+        <a href="index-en.html" class="text-2xl font-medium text-amber-50 hover:text-amber-400 transition-colors px-4 py-2 border border-amber-100/20 rounded-md">
+          EN
+        </a>
+        <a href="#rezervacia" class="px-8 py-4 text-xl rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-lg hover:scale-105 transition-all">
+          Rezervácia
+        </a>
+      </div>
     </div>
   </div>
 
@@ -1115,24 +1124,27 @@
     (() => {
       const menuBtn = document.getElementById('mobile-menu-btn');
       const mobileMenu = document.getElementById('mobile-menu');
-      const menuIcon = document.getElementById('menu-icon');
+      const closeBtn = document.getElementById('mobile-menu-close');
       const menuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
 
-      if (!menuBtn || !mobileMenu || !menuIcon) return;
+      if (!menuBtn || !mobileMenu) return;
 
-      const toggleMenu = () => {
-        mobileMenu.classList.toggle('hidden');
-        menuIcon.textContent = mobileMenu.classList.contains('hidden') ? '☰' : '✕';
+      const openMenu = () => {
+        mobileMenu.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
       };
 
-      menuBtn.addEventListener('click', toggleMenu);
+      const closeMenu = () => {
+        mobileMenu.classList.add('hidden');
+        document.body.style.overflow = '';
+      };
+
+      menuBtn.addEventListener('click', openMenu);
+      if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
       // Close menu when clicking on any link
       menuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-          menuIcon.textContent = '☰';
-        });
+        link.addEventListener('click', closeMenu);
       });
     })();
 
