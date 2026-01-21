@@ -125,6 +125,8 @@
   <header id="header" class="fixed top-0 left-0 w-full z-50 bg-transparent transition-all duration-300">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
       <div class="text-2xl md:text-3xl font-bold tracking-tight leading-none">Cottage Bardejov</div>
+
+      <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-6 text-lg font-medium w-full">
         <a href="#about" class="hover:text-amber-400 transition-colors">About</a>
         <a href="#location" class="hover:text-amber-400 transition-colors">Location</a>
@@ -138,9 +140,16 @@
           <a href="#booking" class="px-6 py-3 text-lg rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-sm hover:scale-105 transition-all">Book now</a>
         </div>
       </nav>
-      <button id="mobile-menu-btn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full bg-amber-400 text-emerald-950 font-semibold text-xl">
-        ☰
-      </button>
+
+      <!-- Mobile Buttons -->
+      <div class="md:hidden flex items-center gap-2">
+        <a href="#booking" class="px-3 py-2 text-sm rounded-full bg-amber-400 text-emerald-950 font-semibold shadow-sm hover:scale-105 transition-all">
+          Book now
+        </a>
+        <button id="mobile-menu-btn" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-amber-400 text-emerald-950 font-semibold text-xl">
+          ☰
+        </button>
+      </div>
     </div>
   </header>
 
