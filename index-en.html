@@ -516,7 +516,7 @@
         <h2 class="text-3xl sm:text-4xl font-semibold">Plan your stay</h2>
         <p class="text-amber-100/90 max-w-2xl">Book your date in advance. The cottage is ideal for families and groups of friends. Fill out the form and we will contact you soon with confirmation.</p>
       </div>
-      <form action="https://formspree.io/f/mjknjyyw" method="POST" class="grid gap-6 bg-emerald-950/70 border border-amber-100/10 rounded-2xl p-6 shadow-xl">
+      <form id="booking-form" method="POST" class="grid gap-6 bg-emerald-950/70 border border-amber-100/10 rounded-2xl p-6 shadow-xl">
         <input type="text" name="_gotcha" style="display:none">
         <input type="hidden" id="kalkulacia" name="kalkulacia" value="">
         <div class="grid md:grid-cols-2 gap-4">
@@ -1016,10 +1016,12 @@
         checkoutInput.addEventListener('change', calculatePrice);
       }
 
-      // Form validation for special events
-      const form = document.querySelector('form[action="https://formspree.io/f/mjknjyyw"]');
+      // Form validation and submission
+      const form = document.getElementById('booking-form');
       if (form) {
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+
           const checkin = checkinInput.value;
           const checkout = checkoutInput.value;
 
@@ -1047,14 +1049,12 @@
 
           // Validate minimum nights for Bardejov Fair
           if (hasFairNight && nights < FAIR_MIN_NIGHTS) {
-            e.preventDefault();
             alert('Bookings overlapping with Bardejov Fair must be at least 5 nights long.');
             return false;
           }
 
           // Validate minimum nights for New Year's Eve
           if (hasSilvesterNight && nights < SILVESTER_MIN_NIGHTS) {
-            e.preventDefault();
             alert('Bookings overlapping with New Year\'s Eve must be at least 2 nights long.');
             return false;
           }
@@ -1064,6 +1064,47 @@
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-emerald-950 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Submitting...';
             submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+          }
+
+          // Collect form data
+          const formData = new FormData(form);
+          const data = Object.fromEntries(formData.entries());
+
+          try {
+            // Send to our booking API
+            const response = await fetch('/api/booking', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+              // Success message
+              alert('✅ Booking was successfully submitted!\n\nWe will contact you shortly with confirmation.\n\nThank you for your interest in Cottage Bardejov!');
+              form.reset();
+              calculatePrice(); // Hide price calculator
+
+              // Reload booked dates after 2 seconds
+              setTimeout(() => {
+                window.location.reload();
+              }, 2000);
+            } else {
+              throw new Error(result.message || 'Failed to submit booking');
+            }
+          } catch (error) {
+            console.error('Booking error:', error);
+            alert('⚠️ Error submitting booking.\n\nPlease try again or contact us directly:\ninfo@chatabardejov.sk\n+421 900 000 000');
+          } finally {
+            // Reset button state
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = 'Submit booking';
+              submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+            }
           }
         });
       }

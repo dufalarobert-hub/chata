@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/dufalarobert-hub/chata#readme",
   "dependencies": {
+    "googleapis": "^140.0.0",
     "node-ical": "^0.22.1"
   }
 }
