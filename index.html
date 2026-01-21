@@ -125,9 +125,9 @@
   <a href="#o-chate" class="skip-link">Preskočiť na hlavný obsah</a>
 
   <!-- Header -->
-  <header id="header" class="absolute top-0 w-full z-50 bg-transparent transition-all duration-300">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 flex justify-between items-center">
-      <div class="text-3xl font-bold tracking-tight">Chata Bardejov</div>
+  <header id="header" class="fixed top-0 left-0 w-full z-50 bg-transparent transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+      <div class="text-2xl md:text-3xl font-bold tracking-tight leading-none">Chata Bardejov</div>
       <nav class="hidden md:flex items-center gap-6 text-lg font-medium w-full">
         <a href="#o-chate" class="hover:text-amber-400 transition-colors">O Chate</a>
         <a href="#lokalita" class="hover:text-amber-400 transition-colors">Lokalita</a>
@@ -144,8 +144,8 @@
         </div>
       </nav>
       <button id="mobile-menu-btn"
-        class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full bg-amber-400 text-emerald-950 font-semibold">
-        <span id="menu-icon">☰</span>
+        class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full bg-amber-400 text-emerald-950 font-semibold text-xl">
+        ☰
       </button>
     </div>
   </header>
@@ -178,12 +178,12 @@
 
   <!-- Hero -->
   <section class="relative isolate overflow-hidden h-screen flex items-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&w=1920&q=80');">
-    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full relative z-10 grid md:grid-cols-2 gap-12 items-center">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full relative z-10 grid md:grid-cols-2 gap-12 items-center pt-20 md:pt-0">
       <div>
         <p class="text-amber-300 uppercase tracking-[0.2em] text-xs mb-4">Útulná chata v prírode</p>
-        <h1 class="text-4xl sm:text-5xl font-semibold leading-tight mb-6">Chata Bardejov – oddych pri horiacom krbe</h1>
-        <p class="text-amber-100/90 text-lg leading-relaxed mb-8">Zažite pokoj severovýchodného Slovenska v drevenom
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight mb-6">Chata Bardejov – oddych pri horiacom krbe</h1>
+        <p class="text-amber-100/90 text-base sm:text-lg leading-relaxed mb-8">Zažite pokoj severovýchodného Slovenska v drevenom
           interiéri s vôňou lesa, praskajúcim krbom a terasou s výhľadom na okolie historického Bardejova.</p>
         <div class="flex flex-wrap gap-4">
           <a href="#rezervacia"
@@ -1154,13 +1154,13 @@
       if (!header) return;
 
       const updateHeader = () => {
-        if (window.scrollY > 50) {
+        if (window.scrollY > 10) {
           // Scrolled state: dark background with shadow
-          header.classList.add('bg-emerald-950/95', 'backdrop-blur-md', 'shadow-md', 'border-b', 'border-amber-100/10');
+          header.classList.add('bg-[#0B231E]', 'backdrop-blur-md', 'shadow-md', 'border-b', 'border-amber-100/10');
           header.classList.remove('bg-transparent');
         } else {
           // Top state: transparent background
-          header.classList.remove('bg-emerald-950/95', 'backdrop-blur-md', 'shadow-md', 'border-b', 'border-amber-100/10');
+          header.classList.remove('bg-[#0B231E]', 'backdrop-blur-md', 'shadow-md', 'border-b', 'border-amber-100/10');
           header.classList.add('bg-transparent');
         }
       };
