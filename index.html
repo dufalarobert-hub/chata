@@ -546,7 +546,7 @@
         <p class="text-amber-100/90 max-w-2xl">Rezervujte si svoj termín včas. Chata je ideálna pre rodiny aj partie
           priateľov. Vyplňte formulár a čoskoro sa vám ozveme s potvrdením termínu.</p>
       </div>
-      <form id="booking-form" method="POST"
+      <form action="https://formspree.io/f/mjknjyyw" method="POST"
         class="grid gap-6 bg-emerald-950/70 border border-amber-100/10 rounded-2xl p-6 shadow-xl">
         <input type="text" name="_gotcha" style="display:none">
         <input type="hidden" id="kalkulacia" name="kalkulacia" value="">
@@ -730,37 +730,92 @@
   </footer>
 
   <script>
-    // Flatpickr initialization with calendar API
+    // Flatpickr initialization with iCal parsing
     (() => {
+      // GOOGLE CALENDAR iCAL URL - vložte sem svoj odkaz z Google Calendar
+      const GOOGLE_ICAL_URL = 'https://calendar.google.com/calendar/ical/9df8165438f7bff5ffbc9aa5f9063d4098060108a32e4c493c1f4b8f09279197%40group.calendar.google.com/private-5798c538273c23f911d19f8c555c101d/basic.ics';
+
       let bookedDates = [];
       let checkinPicker = null;
       let checkoutPicker = null;
 
-      // Fetch booked dates from API
-      fetch('/api/calendar')
-        .then(res => {
-          if (!res.ok) throw new Error('Calendar API unavailable');
-          return res.json();
-        })
-        .then(data => {
-          if (data.success && data.bookedDates) {
-            console.log('Načítané obsadené termíny:', data.bookedDates);
-            // Convert string dates to Date objects for Flatpickr
-            bookedDates = data.bookedDates.map(dateStr => new Date(dateStr + 'T00:00:00'));
-            // Reinitialize pickers with booked dates
-            initFlatpickr();
+      // Parse iCal format to extract booked dates
+      const parseICS = (icsContent) => {
+        const dates = new Set();
+
+        // Match all VEVENT blocks
+        const eventRegex = /BEGIN:VEVENT([\s\S]*?)END:VEVENT/g;
+        const events = [...icsContent.matchAll(eventRegex)];
+
+        events.forEach(eventMatch => {
+          const eventContent = eventMatch[1];
+
+          // Extract DTSTART and DTEND
+          const dtstartMatch = eventContent.match(/DTSTART[;:]([^\r\n]+)/);
+          const dtendMatch = eventContent.match(/DTEND[;:]([^\r\n]+)/);
+
+          if (dtstartMatch && dtendMatch) {
+            let startStr = dtstartMatch[1].split(':').pop();
+            let endStr = dtendMatch[1].split(':').pop();
+
+            // Parse date (format: YYYYMMDD or YYYYMMDDTHHMMSS)
+            const parseICSDate = (str) => {
+              const year = str.substring(0, 4);
+              const month = str.substring(4, 6);
+              const day = str.substring(6, 8);
+              return new Date(`${year}-${month}-${day}T00:00:00`);
+            };
+
+            const startDate = parseICSDate(startStr);
+            const endDate = parseICSDate(endStr);
+
+            // Add all dates between start and end (exclusive of end date)
+            const current = new Date(startDate);
+            while (current < endDate) {
+              dates.add(current.toISOString().split('T')[0]);
+              current.setDate(current.getDate() + 1);
+            }
           }
-        })
-        .catch(err => {
-          console.error('Failed to load calendar:', err);
-          // Show warning to user
-          const warningDiv = document.createElement('div');
-          warningDiv.className = 'bg-amber-100 border-l-4 border-amber-500 text-amber-900 p-4 mb-4 rounded';
-          warningDiv.innerHTML = '<p class="text-sm"><strong>Upozornenie:</strong> Kalendár dostupnosti sa nepodarilo načítať. Prosím, kontaktujte nás pre overenie dostupnosti termínu.</p>';
-          const form = document.querySelector('form[action="https://formspree.io/f/mjknjyyw"]');
-          if (form) form.parentNode.insertBefore(warningDiv, form);
-          initFlatpickr();
         });
+
+        return Array.from(dates).sort();
+      };
+
+      // Fetch and parse iCal data
+      const loadBookedDates = async () => {
+        // Skip if URL is not configured
+        if (!GOOGLE_ICAL_URL || GOOGLE_ICAL_URL === '') {
+          console.log('iCal URL not configured - showing all dates as available');
+          initFlatpickr();
+          return;
+        }
+
+        try {
+          // Use CORS proxy to fetch iCal
+          const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(GOOGLE_ICAL_URL);
+          const response = await fetch(proxyUrl);
+
+          if (!response.ok) throw new Error('Failed to fetch calendar');
+
+          const icsContent = await response.text();
+          const dates = parseICS(icsContent);
+
+          console.log('Načítané obsadené termíny:', dates);
+
+          // Convert to Date objects for Flatpickr
+          bookedDates = dates.map(dateStr => new Date(dateStr + 'T00:00:00'));
+
+          // Reinitialize pickers with booked dates
+          initFlatpickr();
+        } catch (err) {
+          console.error('Failed to load calendar:', err);
+          // Silently fail - don't show error to user
+          initFlatpickr();
+        }
+      };
+
+      // Start loading
+      loadBookedDates();
 
       function initFlatpickr() {
         const commonConfig = {
@@ -1067,12 +1122,10 @@
         checkoutInput.addEventListener('change', calculatePrice);
       }
 
-      // Form validation and submission
-      const form = document.getElementById('booking-form');
+      // Form validation for special events
+      const form = document.querySelector('form[action="https://formspree.io/f/mjknjyyw"]');
       if (form) {
-        form.addEventListener('submit', async (e) => {
-          e.preventDefault();
-
+        form.addEventListener('submit', (e) => {
           const checkin = checkinInput.value;
           const checkout = checkoutInput.value;
 
@@ -1100,12 +1153,14 @@
 
           // Validate minimum nights for Bardejov Fair
           if (hasFairNight && nights < FAIR_MIN_NIGHTS) {
+            e.preventDefault();
             alert('Pobyt zasahujúci do Bardejovského jarmoku musí trvať minimálne 5 nocí.');
             return false;
           }
 
           // Validate minimum nights for Silvester
           if (hasSilvesterNight && nights < SILVESTER_MIN_NIGHTS) {
+            e.preventDefault();
             alert('Pobyt zasahujúci do Silvestra musí trvať minimálne 2 noci.');
             return false;
           }
@@ -1115,47 +1170,6 @@
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-emerald-950 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Odosielam...';
             submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
-          }
-
-          // Collect form data
-          const formData = new FormData(form);
-          const data = Object.fromEntries(formData.entries());
-
-          try {
-            // Send to our booking API
-            const response = await fetch('/api/booking', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(data)
-            });
-
-            const result = await response.json();
-
-            if (result.success) {
-              // Success message
-              alert('✅ Rezervácia bola úspešne odoslaná!\n\nČoskoro vás kontaktujeme s potvrdením.\n\nDakujeme za váš záujem o Chatu Bardejov!');
-              form.reset();
-              calculatePrice(); // Hide price calculator
-
-              // Reload booked dates after 2 seconds
-              setTimeout(() => {
-                window.location.reload();
-              }, 2000);
-            } else {
-              throw new Error(result.message || 'Nepodarilo sa odoslať rezerváciu');
-            }
-          } catch (error) {
-            console.error('Booking error:', error);
-            alert('⚠️ Chyba pri odosielaní rezervácie.\n\nProsím, skúste to znova alebo nás kontaktujte priamo:\ninfo@chatabardejov.sk\n+421 900 000 000');
-          } finally {
-            // Reset button state
-            if (submitBtn) {
-              submitBtn.disabled = false;
-              submitBtn.innerHTML = 'Odoslať rezerváciu';
-              submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
-            }
           }
         });
       }
