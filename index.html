@@ -117,6 +117,99 @@
     .flatpickr-current-month input.cur-year {
       color: #fef3c7 !important;
     }
+
+    /* Custom Lightbox Styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 36px;
+      cursor: pointer;
+      padding: 0;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.2s;
+    }
+
+    .lightbox-close:hover {
+      opacity: 0.7;
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: white;
+      font-size: 32px;
+      cursor: pointer;
+      padding: 20px;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      border-radius: 50%;
+    }
+
+    .lightbox-nav:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .lightbox-prev {
+      left: 20px;
+    }
+
+    .lightbox-next {
+      right: 20px;
+    }
+
+    .lightbox-counter {
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 14px;
+    }
   </style>
 </head>
 
@@ -184,7 +277,7 @@
   </div>
 
   <!-- Hero -->
-  <section class="relative isolate overflow-hidden h-screen flex items-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&w=1920&q=80');">
+  <section class="relative isolate overflow-hidden h-screen flex items-center bg-cover bg-center" style="background-image: url('images/fotky-chata/Chata + Kozub - uvodná fotka.jpg');">
     <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full relative z-10 grid md:grid-cols-2 gap-12 items-center pt-20 md:pt-0">
       <div>
@@ -203,11 +296,11 @@
       </div>
       <div class="grid grid-cols-2 gap-4">
         <div class="rounded-3xl bg-amber-100/10 border border-amber-100/10 aspect-[4/5] overflow-hidden shadow-xl">
-          <div class="h-full w-full bg-gradient-to-br from-amber-200 to-amber-400 opacity-80"></div>
+          <img src="images/fotky-chata/Kozub.jpg" alt="Kozub v chate" class="h-full w-full object-cover">
         </div>
         <div
           class="rounded-3xl bg-amber-100/10 border border-amber-100/10 aspect-[4/5] overflow-hidden shadow-xl translate-y-6">
-          <div class="h-full w-full bg-gradient-to-br from-emerald-200 to-emerald-400 opacity-70"></div>
+          <img src="images/fotky-chata/Chata z predu.jpg" alt="Chata z predu" class="h-full w-full object-cover">
         </div>
       </div>
     </div>
@@ -376,16 +469,60 @@
     <div class="flex flex-col gap-4">
       <p class="text-amber-300 uppercase tracking-[0.2em] text-xs">Fotogaléria</p>
       <h2 class="text-3xl sm:text-4xl font-semibold">Interiér aj exteriér</h2>
-      <p class="text-amber-100/90 max-w-2xl">Pozrite si atmosféru chaty – drevené detaily, útulný krb a prírodu v okolí.
-        Nahraďte placeholdery vlastnými fotografiami.</p>
+      <p class="text-amber-100/90 max-w-2xl">Pozrite si atmosféru chaty – drevené detaily, útulný krb a prírodu v okolí.</p>
     </div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <div class="h-48 rounded-2xl bg-gradient-to-br from-amber-200 to-amber-400 opacity-90"></div>
-      <div class="h-48 rounded-2xl bg-gradient-to-br from-emerald-200 to-emerald-500 opacity-80"></div>
-      <div class="h-48 rounded-2xl bg-gradient-to-br from-amber-100 to-amber-300 opacity-90"></div>
-      <div class="h-48 rounded-2xl bg-gradient-to-br from-emerald-100 to-emerald-300 opacity-80"></div>
-      <div class="h-48 rounded-2xl bg-gradient-to-br from-amber-300 to-amber-500 opacity-80"></div>
-      <div class="h-48 rounded-2xl bg-gradient-to-br from-emerald-200 to-emerald-600 opacity-80"></div>
+    <div class="gallery grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <a href="images/fotky-chata/Chata + Kozub - uvodná fotka.jpg">
+        <img src="images/fotky-chata/Chata + Kozub - uvodná fotka.jpg" alt="Chata s krbom" class="h-48 w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity">
+      </a>
+      <a href="images/fotky-chata/Chata z predu.jpg">
+        <img src="images/fotky-chata/Chata z predu.jpg" alt="Chata z predu" class="h-48 w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity">
+      </a>
+      <a href="images/fotky-chata/Kozub.jpg">
+        <img src="images/fotky-chata/Kozub.jpg" alt="Kozub" class="h-48 w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity">
+      </a>
+      <a href="images/fotky-chata/Kozub bok.JPG">
+        <img src="images/fotky-chata/Kozub bok.JPG" alt="Kozub z boku" class="h-48 w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity">
+      </a>
+      <a href="images/fotky-chata/Obývacia miestnosť.JPG">
+        <img src="images/fotky-chata/Obývacia miestnosť.JPG" alt="Obývacia miestnosť" class="h-48 w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity">
+      </a>
+      <a href="images/fotky-chata/Obývacia miestnosť 2.JPG">
+        <img src="images/fotky-chata/Obývacia miestnosť 2.JPG" alt="Obývacia miestnosť" class="h-48 w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity">
+      </a>
+      <a href="images/fotky-chata/Obývacia miestnosť + jedáleň.JPG">
+        <img src="images/fotky-chata/Obývacia miestnosť + jedáleň.JPG" alt="Obývacia miestnosť a jedáleň" class="h-48 w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity">
+      </a>
+      <a href="images/fotky-chata/Kuchyňa.JPG">
+        <img src="images/fotky-chata/Kuchyňa.JPG" alt="Kuchyňa" class="h-48 w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity">
+      </a>
+      <a href="images/fotky-chata/Kuchyna 1.JPG">
+        <img src="images/fotky-chata/Kuchyna 1.JPG" alt="Kuchyňa" class="h-48 w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity">
+      </a>
+      <a href="images/fotky-chata/Izba 1 (manželská posteľ + posteľ.jpg">
+        <img src="images/fotky-chata/Izba 1 (manželská posteľ + posteľ.jpg" alt="Spálňa 1" class="h-48 w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity">
+      </a>
+      <a href="images/fotky-chata/Izba 1 (manželská posteľ + posteľ 2.JPG">
+        <img src="images/fotky-chata/Izba 1 (manželská posteľ + posteľ 2.JPG" alt="Spálňa 1" class="h-48 w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity">
+      </a>
+      <a href="images/fotky-chata/Izba 2 (2 ložkové postele).JPG">
+        <img src="images/fotky-chata/Izba 2 (2 ložkové postele).JPG" alt="Spálňa 2" class="h-48 w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity">
+      </a>
+      <a href="images/fotky-chata/Izba 2 (2 ložkové postele) 2.JPG">
+        <img src="images/fotky-chata/Izba 2 (2 ložkové postele) 2.JPG" alt="Spálňa 2" class="h-48 w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity">
+      </a>
+      <a href="images/fotky-chata/WC + sprcha.JPG">
+        <img src="images/fotky-chata/WC + sprcha.JPG" alt="Kúpeľňa" class="h-48 w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity">
+      </a>
+      <a href="images/fotky-chata/IMG_0221 2.JPG">
+        <img src="images/fotky-chata/IMG_0221 2.JPG" alt="Detail interiéru" class="h-48 w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity">
+      </a>
+      <a href="images/fotky-chata/IMG_0224 2.JPG">
+        <img src="images/fotky-chata/IMG_0224 2.JPG" alt="Detail interiéru" class="h-48 w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity">
+      </a>
+      <a href="images/fotky-chata/Parkovisko.JPG">
+        <img src="images/fotky-chata/Parkovisko.JPG" alt="Parkovisko" class="h-48 w-full rounded-2xl object-cover cursor-pointer hover:opacity-90 transition-opacity">
+      </a>
     </div>
   </section>
 
@@ -1178,6 +1315,100 @@
 
       // Run on scroll
       window.addEventListener('scroll', updateHeader);
+    })();
+  </script>
+
+  <!-- Custom Lightbox HTML -->
+  <div id="lightbox" class="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close">&times;</button>
+      <button class="lightbox-nav lightbox-prev" id="lightbox-prev">&lsaquo;</button>
+      <button class="lightbox-nav lightbox-next" id="lightbox-next">&rsaquo;</button>
+      <img id="lightbox-img" src="" alt="">
+      <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
+  </div>
+
+  <!-- Custom Lightbox JavaScript -->
+  <script>
+    (function() {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxClose = document.getElementById('lightbox-close');
+      const lightboxPrev = document.getElementById('lightbox-prev');
+      const lightboxNext = document.getElementById('lightbox-next');
+      const lightboxCounter = document.getElementById('lightbox-counter');
+
+      const galleryLinks = document.querySelectorAll('.gallery a');
+      let currentIndex = 0;
+
+      // Open lightbox
+      function openLightbox(index) {
+        currentIndex = index;
+        const link = galleryLinks[currentIndex];
+        const img = link.querySelector('img');
+
+        lightboxImg.src = link.href;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        updateCounter();
+      }
+
+      // Close lightbox
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      // Navigate to previous image
+      function showPrev() {
+        currentIndex = (currentIndex - 1 + galleryLinks.length) % galleryLinks.length;
+        openLightbox(currentIndex);
+      }
+
+      // Navigate to next image
+      function showNext() {
+        currentIndex = (currentIndex + 1) % galleryLinks.length;
+        openLightbox(currentIndex);
+      }
+
+      // Update counter
+      function updateCounter() {
+        lightboxCounter.textContent = `${currentIndex + 1} / ${galleryLinks.length}`;
+      }
+
+      // Add click event to gallery links
+      galleryLinks.forEach((link, index) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          openLightbox(index);
+        });
+      });
+
+      // Close button
+      lightboxClose.addEventListener('click', closeLightbox);
+
+      // Navigation buttons
+      lightboxPrev.addEventListener('click', showPrev);
+      lightboxNext.addEventListener('click', showNext);
+
+      // Close on background click
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showPrev();
+        if (e.key === 'ArrowRight') showNext();
+      });
     })();
   </script>
 </body>
